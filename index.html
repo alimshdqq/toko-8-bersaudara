@@ -190,9 +190,14 @@ const waLink = (t) => "https://wa.me/" + CONFIG.waNumber + "?text=" + encodeURIC
 const orderText = (name) => "Halo " + CONFIG.shopName + ", saya mau pesan " + name + ".\n\nJumlah: \nNama: \nAlamat: \n\nMohon info total, ongkir, dan nomor rekening untuk transfer. Terima kasih.";
 
 const n = CONFIG.waNumber;
-$("#wa-text").textContent = n.startsWith("62") ? "+62 " + n.slice(2, 5) + "-" + n.slice(5, 9) + "-" + n.slice(9) : "+" + n;
-if (!CONFIG.templateMode) $("#notice").hidden = true;
-$("#notice-close").addEventListener("click", () => { $("#notice").hidden = true; });
+const waText = $("#wa-text");
+if (waText) waText.textContent = n.startsWith("62") ? "+62 " + n.slice(2, 5) + "-" + n.slice(5, 9) + "-" + n.slice(9) : "+" + n;
+
+const notice = $("#notice");
+if (notice) {
+  if (!CONFIG.templateMode) notice.hidden = true;
+  $("#notice-close").addEventListener("click", () => { notice.hidden = true; });
+}
 
 const general = waLink("Halo " + CONFIG.shopName + ", saya mau pesan abon ayam.\n\nRasa: \nJumlah: \nNama: \nAlamat: \n\nMohon info total, ongkir, dan nomor rekening untuk transfer. Terima kasih.");
 document.querySelectorAll('[data-wa]').forEach((a) => {
