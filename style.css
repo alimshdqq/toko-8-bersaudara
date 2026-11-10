@@ -1,7 +1,3 @@
-:root { color-scheme: light; }
-body { margin: 0; }
-
-/* Layout: landing satu tujuan. Hero dengan satu ajakan (pesan via WhatsApp), pilihan rasa, alasan, tiga langkah, lalu ajakan penutup. Bilah WhatsApp tetap di bawah layar. */
 :root {
   --bg: #fafaf8;
   --surface: #ffffff;
@@ -95,20 +91,170 @@ a { color: inherit; }
 .section h2 { font-size: clamp(1.8rem, 4.5vw, 3rem); font-weight: 800; margin-top: 0.5rem; }
 .section .sub { color: var(--muted); margin-top: 0.75rem; max-width: 34rem; }
 
-/* pilih rasa */
-.flavors { margin-top: 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: 1.25rem; }
-.flavor { background: var(--surface); border: 1px solid var(--line); border-radius: 0.6rem; overflow: hidden; display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); min-width: 0; }
-.flavor img { width: 100%; height: 100%; min-height: 14rem; object-fit: cover; object-position: 50% 62%; background: var(--accent-soft); }
-.flavor .in { padding: 1.1rem; display: flex; flex-direction: column; gap: 0.7rem; min-width: 0; }
-.flavor h3 { font-size: 1.45rem; font-weight: 700; }
-.tag { align-self: start; font-size: 0.75rem; font-weight: 700; padding: 0.15rem 0.55rem; border-radius: 0.25rem; background: var(--accent-soft); color: var(--accent); }
-.tag.leaf { background: var(--leaf-soft); color: var(--leaf); }
-.flavor p { color: var(--muted); font-size: 0.95rem; }
-.flavor .komp { font-size: 0.82rem; border: 1.5px dashed var(--line); border-radius: 0.35rem; padding: 0.5rem 0.65rem; }
-.flavor .komp b { display: block; font-family: var(--font-mono); font-size: 0.65rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
-.flavor .buy { margin-top: auto; display: grid; gap: 0.6rem; }
-.price { font-family: var(--font-display); font-weight: 800; font-size: 1.5rem; font-variant-numeric: tabular-nums; }
-.price small { font-family: var(--font-body); font-weight: 500; font-size: 0.8rem; color: var(--muted); margin-left: 0.25rem; }
+
+/* =================================
+   PILIH RASA - PREMIUM PRODUCT CARD
+================================= */
+
+.flavors {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.flavor {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 0.85rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.flavor:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,.12);
+}
+
+/* Gambar produk */
+.flavor img {
+  width: 100%;
+  height: 250px;
+  min-height: 250px;
+  object-fit: contain;
+  object-position: center;
+  padding: 1rem;
+  background: var(--bg);
+}
+
+/* Isi kartu */
+.flavor .in {
+  padding: 1.35rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: .85rem;
+  min-width: 0;
+}
+
+/* Label produk */
+.tag {
+  align-self: start;
+  font-size: .75rem;
+  font-weight: 700;
+  padding: .35rem .8rem;
+  border-radius: 50px;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.tag.leaf {
+  background: var(--leaf-soft);
+  color: var(--leaf);
+}
+
+/* Judul */
+.flavor h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+/* Deskripsi */
+.flavor p {
+  color: var(--muted);
+  font-size: .92rem;
+  line-height: 1.7;
+}
+
+/* Komposisi */
+.flavor .komp {
+  font-size: .85rem;
+  line-height: 1.6;
+  border: 1px dashed var(--line);
+  border-radius: .55rem;
+  padding: .85rem;
+}
+
+.flavor .komp b {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: .65rem;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: .3rem;
+}
+
+/* Harga dan tombol */
+.flavor .buy {
+  margin-top: auto;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .85rem;
+}
+
+.price {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.65rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.3;
+}
+
+.price small {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: .85rem;
+  color: var(--muted);
+  margin-left: .25rem;
+}
+
+/* Tombol WhatsApp */
+.flavor .btn-wa {
+  width: 100%;
+  min-height: 3.2rem;
+  border-radius: .55rem;
+  font-size: .95rem;
+  white-space: nowrap;
+  padding: .75rem 1rem;
+}
+
+.flavor .btn-wa:hover {
+  filter: brightness(1.08);
+}
+
+/* Tablet */
+@media (max-width: 52rem) {
+  .flavors {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .flavor img {
+    height: 230px;
+    min-height: 230px;
+  }
+}
+
+/* Smartphone */
+@media (max-width: 36rem) {
+  .flavors {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .flavor img {
+    height: 260px;
+    min-height: 260px;
+  }
+}
+
 
 /* alasan */
 .why { background: var(--surface); border-block: 1px solid var(--line); }
@@ -143,8 +289,54 @@ a { color: inherit; }
 .final p { opacity: .8; margin-top: 0.5rem; }
 .num { font-family: var(--font-mono); user-select: all; }
 
-footer { padding-block: 1.5rem 6rem; font-size: 0.85rem; color: var(--muted); }
-footer .wrap { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; justify-content: space-between; }
+/* ===== FOOTER ===== */
+.foot {
+  --f-bg: #2a1a13;
+  --f-fg: #f4ece5;
+  --f-muted: #b9a89c;
+  --f-line: #4a3a30;
+  --f-accent: #f0a04b;
+  background: var(--f-bg);
+  color: var(--f-fg);
+  padding-block: clamp(2.5rem, 6vw, 4rem) 1.5rem;
+  font-size: 0.95rem;
+}
+.foot-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) repeat(2, minmax(0, 1fr));
+  gap: 2rem clamp(1.5rem, 4vw, 3.5rem);
+}
+.foot .brand { font-size: 1.6rem; }
+.foot .brand span { color: var(--f-accent); }
+.foot-brand p { margin-top: 0.75rem; color: var(--f-muted); max-width: 22rem; }
+.foot h3 {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--f-accent);
+  margin-bottom: 0.9rem;
+}
+.foot ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.55rem; }
+.foot li { color: var(--f-muted); }
+.foot li a { color: var(--f-fg); text-decoration: none; text-underline-offset: 3px; }
+.foot li a:hover { text-decoration: underline; }
+.foot .num { color: var(--f-fg); }
+.foot-bottom {
+  margin-top: clamp(2rem, 5vw, 3rem);
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--f-line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--f-muted);
+}
+.foot-bottom a { color: var(--f-fg); text-decoration: none; }
+.foot-bottom a:hover { text-decoration: underline; }
+.foot a:focus-visible { outline-color: var(--f-accent); }
 
 /* bilah WhatsApp */
 .bar {
@@ -163,10 +355,13 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; justify-content
 @media (max-width: 52rem) {
   .hero .wrap, .why .wrap, .also .wrap { grid-template-columns: minmax(0, 1fr); }
   .top .from { display: none; }
+  .foot-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .foot-brand { grid-column: 1 / -1; }
 }
 @media (max-width: 30rem) {
   .flavor { grid-template-columns: minmax(0, 1fr); }
   .flavor img { height: 15rem; }
   .bar p small { display: none; }
+  .foot-grid { grid-template-columns: minmax(0, 1fr); }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
