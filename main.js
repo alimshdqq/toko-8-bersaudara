@@ -221,7 +221,7 @@ function renderCart() {
       '<div class="qty qty-sm"><button type="button" data-act="dec" data-id="' + id + '" aria-label="Kurangi ' + esc(f.name) + '">&minus;</button>' +
       '<output>' + q + '</output>' +
       '<button type="button" data-act="inc" data-id="' + id + '" aria-label="Tambah ' + esc(f.name) + '">+</button></div></div>' +
-      '<div class="ci-side"><b>' + rupiah(f.price * q) + '</b><button type="button" class="linkbtn" data-act="del" data-id="' + id + '">Hapus</button></div></div>';
+      '<div class="ci-side"><b>' + rupiah(f.price * q) + '</b><button type="button" class="ci-del" data-act="del" data-id="' + id + '" aria-label="Hapus ' + esc(f.name) + '" title="Hapus"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16"/><path d="M10 11v6M14 11v6"/><path d="M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-12"/><path d="M9 7V4h6v3"/></svg></button></div></div>';
   }).join("") :
     '<div class="cart-empty"><div class="ce-art" aria-hidden="true">🛍️</div><b>Pesananmu masih kosong</b><p>Pilih camilan favoritmu dulu, nanti muncul di sini.</p>' +
     '<button type="button" class="btn btn-primary" id="ce-go">Lihat produk</button></div>';
