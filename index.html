@@ -1,3 +1,9 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#17110e">
 <title>Abon Ayam 8 Bersaudara</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -7,6 +13,8 @@
 <link rel="stylesheet" href="faq.css">
 <link rel="stylesheet" href="loader.css">
 <script src="loader.js"></script>
+</head>
+<body>
  
  
 <div class="loader" id="loader" role="status" aria-live="polite" aria-label="Memuat halaman">
@@ -39,15 +47,15 @@
   </div>
 </div>
 <noscript><link rel="stylesheet" href="loader-off.css"></noscript>
-
-
+ 
+ 
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#atas">8 <span>Bersaudara</span></a>
     <span class="from">Pawon Teh Aisyah · Garut</span>
   </div>
 </header>
-
+ 
 <main id="atas">
   <section class="hero">
     <div class="wrap">
@@ -65,7 +73,7 @@
       </div>
     </div>
   </section>
-
+ 
   <section class="points" aria-label="Ringkasan">
     <div class="wrap">
       <ul>
@@ -76,7 +84,7 @@
       </ul>
     </div>
   </section>
-
+ 
   <section class="section" id="rasa">
     <div class="wrap">
       <p class="eyebrow">Pilih produk</p>
@@ -85,7 +93,7 @@
       <div class="flavors" id="flavors"></div>
     </div>
   </section>
-
+ 
  
 <section class="section why">
   <div class="wrap">
@@ -93,27 +101,27 @@
       <img src="img/abon-vakum.jpg" alt="Abon ayam spesial dalam kemasan vakum dengan stiker 8 Bersaudara" loading="lazy">
       <figcaption>Abon Ayam Spesial 8 Bersaudara, dikemas higienis dan praktis</figcaption>
     </figure>
-
+ 
     <div>
       <p class="eyebrow">Mengenal produk kami</p>
       <h2>Rasa yang gurih, bahan yang jelas</h2>
-
+ 
       <ul class="reasons">
         <li>
           <b>Gurih khas ayam</b>
           <span>Dibuat dari daging ayam, jadi rasa gurihnya terasa asli dan cocok dimakan kapan saja.</span>
         </li>
-
+ 
         <li>
           <b>Bahan yang jelas</b>
           <span>Daging ayam, bawang merah, dan rempah pilihan. Varian pedas ditambah cabai.</span>
         </li>
-
+ 
         <li>
           <b>Cocok untuk banyak hidangan</b>
           <span>Tinggal taburkan di atas nasi hangat, bubur, atau roti.</span>
         </li>
-
+ 
         <li>
           <b>Tanggal kedaluwarsa tertera</b>
           <span>Setiap kemasan mencantumkan tanggal kedaluwarsa, jadi mudah dicek sebelum dimakan.</span>
@@ -122,8 +130,8 @@
     </div>
   </div>
 </section>
-
-
+ 
+ 
   <section class="section" id="cara-pesan">
     <div class="wrap">
       <p class="eyebrow">Cara pesan</p>
@@ -135,7 +143,7 @@
       </ol>
     </div>
   </section>
-
+ 
   <section class="section faq" id="faq">
     <div class="wrap">
       <p class="eyebrow">Pertanyaan umum</p>
@@ -185,12 +193,12 @@
       </div>
     </div>
   </section>
-
+ 
   
-
+ 
   
 </main>
-
+ 
 <footer class="foot">
   <div class="wrap">
     <div class="foot-grid">
@@ -198,7 +206,7 @@
         <a class="brand" href="#atas">8 <span>Bersaudara</span></a>
         <p>Abon ayam dan aneka camilan dari Garut: keripik pisang, pastel abon, cipeng, dan kentang mustofa.</p>
       </div>
-
+ 
       <div>
         <h3>Jelajahi</h3>
         <ul>
@@ -206,7 +214,7 @@
           <li><a href="#cara-pesan">Cara pesan</a></li>
         </ul>
       </div>
-
+ 
       <div>
         <h3>Kontak</h3>
         <ul>
@@ -216,24 +224,24 @@
         </ul>
       </div>
     </div>
-
+ 
     <div class="foot-bottom">
       <span>8 Bersaudara · Diproduksi oleh Pawon Teh Aisyah</span>
       <a href="#atas">Kembali ke atas</a>
     </div>
   </div>
 </footer>
-
-
-
+ 
+ 
+ 
 <script>
-
-
+ 
+ 
 const CONFIG = {
   shopName: "8 Bersaudara",
   waNumber: "6282240176262",
   templateMode: true,
-
+ 
   flavors: [
     {
       name: "Abon Ayam Spesial",
@@ -300,11 +308,11 @@ const CONFIG = {
   },
   ]
 };
-
-
+ 
+ 
   
-
-
+ 
+ 
 const $ = (s) => document.querySelector(s);
 const rupiah = (n) => "Rp " + new Intl.NumberFormat("id-ID").format(n);
 const waLink = (t) => "https://wa.me/" + CONFIG.waNumber + "?text=" + encodeURIComponent(t);
@@ -336,3 +344,5 @@ $("#flavors").innerHTML = CONFIG.flavors.map((f) =>
   '<a class="btn btn-wa" href="' + waLink(orderText(f.name)) + '" target="_blank" rel="noopener">Pesan via WhatsApp</a></div></div></article>'
 ).join("");
 </script>
+</body>
+</html>

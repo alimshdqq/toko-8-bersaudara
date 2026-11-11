@@ -1,4 +1,24 @@
+/* Tema default: gelap (cokelat tua). Terang hanya kalau <html data-theme="light"> */
 :root {
+  --bg: #17110e;
+  --surface: #211914;
+  --fg: #f4ece5;
+  --muted: #b9a89c;
+  --line: #3a2d25;
+  --accent: #f0a04b;
+  --accent-fg: #2a1a0a;
+  --accent-soft: #3a2616;
+  --leaf: #86c97a;
+  --leaf-soft: #223320;
+  --wa: #3cc779;
+  --wa-fg: #0b2a17;
+  --focus: #8ab6ff;
+  --font-display: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+  --font-body: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "DM Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme: dark;
+}
+:root[data-theme="light"] {
   --bg: #fafaf8;
   --surface: #ffffff;
   --fg: #2a1a13;
@@ -12,27 +32,11 @@
   --wa: #1a8f4a;
   --wa-fg: #ffffff;
   --focus: #1f5fbf;
-  --font-display: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
-  --font-body: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono: "DM Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #17110e; --surface: #211914; --fg: #f4ece5; --muted: #b9a89c; --line: #3a2d25;
-    --accent: #f0a04b; --accent-fg: #2a1a0a; --accent-soft: #3a2616;
-    --leaf: #86c97a; --leaf-soft: #223320; --wa: #3cc779; --wa-fg: #0b2a17; --focus: #8ab6ff;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #17110e; --surface: #211914; --fg: #f4ece5; --muted: #b9a89c; --line: #3a2d25;
-  --accent: #f0a04b; --accent-fg: #2a1a0a; --accent-soft: #3a2616;
-  --leaf: #86c97a; --leaf-soft: #223320; --wa: #3cc779; --wa-fg: #0b2a17; --focus: #8ab6ff;
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; background: var(--bg); }
 body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 1rem; line-height: 1.6; margin: 0; }
 h1, h2, h3 { font-family: var(--font-display); line-height: 1.06; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
 p { margin: 0; }
