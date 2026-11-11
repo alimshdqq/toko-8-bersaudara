@@ -1,0 +1,2 @@
+/* Dipakai hanya saat JavaScript nonaktif: sembunyikan loading screen. */
+.loader { display: none !important; }
