@@ -35,7 +35,7 @@
 }
 
 /* gambar hero melayang pelan */
-.is-ready .hero-art img {
+.is-ready .hero-art .pic {
   animation:
     an-zoom .8s var(--ease-out) backwards,
     an-float 6s ease-in-out 1.2s infinite;
@@ -62,8 +62,8 @@
 .flavor img { transition: transform .5s var(--ease-out); }
 .flavor:hover img { transform: scale(1.05); }
 
-.bundle, .quote { transition: transform .25s ease, box-shadow .25s ease; }
-.bundle:hover, .quote:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0, 0, 0, .12); }
+.bundle { transition: transform .25s ease, box-shadow .25s ease; }
+.bundle:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0, 0, 0, .12); }
 
 .why figure img { transition: transform .6s var(--ease-out); }
 .why figure:hover img { transform: scale(1.02); }
@@ -73,6 +73,10 @@
 
 .reasons li, .facts li { transition: border-color .25s ease, padding-left .25s ease; }
 .reasons li:hover, .facts li:hover { padding-left: 1.3rem; }
+
+.chip { transition: background .2s ease, color .2s ease, border-color .2s ease, transform .15s ease; }
+.chip:hover { border-color: var(--accent); }
+.chip:active { transform: scale(.95); }
 
 /* ---------- FAQ ---------- */
 .faq-item p { transform-origin: top; }
@@ -93,7 +97,7 @@
 
 /* ---------- tombol kembali ke atas ---------- */
 .to-top {
-  position: fixed; right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(16px + 3.5rem + 12px + env(safe-area-inset-bottom, 0px));
+  position: fixed; right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px));
   z-index: 55; width: 3rem; height: 3rem; border-radius: 50%;
   border: 0; background: var(--accent); color: var(--accent-fg);
   font-size: 1.25rem; font-weight: 700; line-height: 1; cursor: pointer;
@@ -106,10 +110,13 @@
 /* ---------- hormati pengguna yang mematikan animasi ---------- */
 @media (prefers-reduced-motion: reduce) {
   .reveal, .hero-in { opacity: 1; }
-  .reveal.in-view, .is-ready .hero-in, .is-ready .hero-art img,
+  .reveal.in-view, .is-ready .hero-in, .is-ready .hero-art .pic,
   .faq-item[open] > p, .faq-item:not([hidden]), .is-ready .hero h1 em { animation: none; }
   .hero h1 em { background-size: 100% 3px; }
-  .flavor:hover img, .why figure:hover img, .bundle:hover, .quote:hover { transform: none; }
+  .flavor:hover img, .why figure:hover img, .bundle:hover { transform: none; }
   .scroll-progress { display: none; }
   .to-top { transition: none; }
 }
+
+/* tombol ke atas naik saat bilah pesanan tampil */
+body:has(.cartbar:not([hidden])) .to-top { bottom: calc(5.2rem + env(safe-area-inset-bottom, 0px)); }
