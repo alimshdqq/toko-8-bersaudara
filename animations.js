@@ -24,7 +24,6 @@
     [".facts li", ""],
     [".quote", ""],
     [".steps li", ""],
-    [".faq-tools", ""],
     [".faq-item", ""],
     [".foot-grid > *", ""]
   ];
