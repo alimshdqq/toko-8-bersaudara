@@ -15,14 +15,15 @@
     [".section > .wrap > .eyebrow, .section > .wrap > h2, .section > .wrap > .sub", ""],
     [".points li", ""],
     [".ship li", ""],
+    [".flavor", ""],
     [".bundle", ""],
     [".why figure", "from-left"],
     [".why .wrap > div", "from-right"],
     [".reasons li", ""],
-    [".story-copy", "from-left"],
+    [".story .wrap > div", "from-left"],
     [".facts li", ""],
+    [".quote", ""],
     [".steps li", ""],
-    [".faq-tools", ""],
     [".faq-item", ""],
     [".foot-grid > *", ""]
   ];
@@ -36,7 +37,7 @@
   function setup() {
     /* hero */
     var heroEls = document.querySelectorAll(
-      ".hero .eyebrow, .hero h1, .hero .lead, .hero .cta, .hero-badges, .hero-art .pic, .sticker"
+      ".hero .eyebrow, .hero h1, .hero .lead, .hero .cta, .hero-art img"
     );
     Array.prototype.forEach.call(heroEls, function (el, i) {
       el.classList.add("hero-in");
