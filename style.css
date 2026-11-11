@@ -415,3 +415,10 @@ button { font: inherit; color: inherit; }
   .flavor .pic, .steps .chat, .heat span { transition: none; }
   .steps .chat { opacity: 1; translate: none; }
 }
+
+/* tombol hapus di keranjang */
+.ci-del { display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); color: var(--muted); cursor: pointer; transition: background .2s ease, color .2s ease, border-color .2s ease, transform .15s ease; }
+.ci-del:hover { background: #fdeceb; border-color: #e9b4b0; color: #b3261e; }
+.ci-del:active { transform: scale(.92); }
+.clearbtn { justify-self: center; display: inline-flex; align-items: center; gap: .45rem; padding: .5rem 1rem; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--muted); font-size: .875rem; font-weight: 600; cursor: pointer; transition: background .2s ease, color .2s ease, border-color .2s ease; }
+.clearbtn:hover { background: #fdeceb; border-color: #e9b4b0; color: #b3261e; }
