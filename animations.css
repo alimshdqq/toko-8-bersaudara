@@ -1,0 +1,115 @@
+/* =====================================================
+   ANIMASI: dipasang lewat <link rel="stylesheet" href="animations.css">
+   dan dikendalikan oleh animations.js.
+   Elemen baru disembunyikan hanya setelah JS menandainya (.reveal),
+   jadi kalau JS mati, semua konten tetap tampil.
+   Hapus kedua file + tag-nya di index.html untuk mematikan semua animasi.
+   ===================================================== */
+
+:root {
+  --ease-out: cubic-bezier(.2, .8, .2, 1);
+}
+
+/* ---------- muncul saat di-scroll ---------- */
+.reveal { opacity: 0; }
+.reveal.in-view {
+  opacity: 1;
+  animation: an-rise .7s var(--ease-out) backwards;
+  animation-delay: calc(var(--i, 0) * 80ms);
+}
+.reveal.from-left.in-view  { animation-name: an-left; }
+.reveal.from-right.in-view { animation-name: an-right; }
+.reveal.zoom.in-view       { animation-name: an-zoom; }
+
+@keyframes an-rise  { from { opacity: 0; translate: 0 28px; } }
+@keyframes an-left  { from { opacity: 0; translate: -36px 0; } }
+@keyframes an-right { from { opacity: 0; translate: 36px 0; } }
+@keyframes an-zoom  { from { opacity: 0; scale: .94; } }
+
+/* ---------- hero: masuk bergantian ---------- */
+.hero-in { opacity: 0; }
+.is-ready .hero-in {
+  opacity: 1;
+  animation: an-rise .8s var(--ease-out) backwards;
+  animation-delay: calc(var(--i, 0) * 110ms);
+}
+
+/* gambar hero melayang pelan */
+.is-ready .hero-art img {
+  animation:
+    an-zoom .8s var(--ease-out) backwards,
+    an-float 6s ease-in-out 1.2s infinite;
+  animation-delay: calc(var(--i, 0) * 110ms), calc(1.2s + var(--i, 0) * 400ms);
+}
+@keyframes an-float {
+  0%, 100% { translate: 0 0; }
+  50%      { translate: 0 -8px; }
+}
+
+/* kata "tanpa tambahan MSG" digarisbawahi */
+.hero h1 em {
+  background: linear-gradient(currentColor, currentColor) no-repeat 0 100% / 0 3px;
+  padding-bottom: .05em;
+}
+.is-ready .hero h1 em { animation: an-underline .9s var(--ease-out) .7s forwards; }
+@keyframes an-underline { to { background-size: 100% 3px; } }
+
+/* ---------- interaksi ---------- */
+.btn { transition: transform .15s ease, filter .15s ease, box-shadow .2s ease; }
+.btn:active { transform: translateY(0) scale(.97); }
+.btn-wa:hover { box-shadow: 0 8px 22px rgba(60, 199, 121, .28); }
+
+.flavor img { transition: transform .5s var(--ease-out); }
+.flavor:hover img { transform: scale(1.05); }
+
+.bundle, .quote { transition: transform .25s ease, box-shadow .25s ease; }
+.bundle:hover, .quote:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0, 0, 0, .12); }
+
+.why figure img { transition: transform .6s var(--ease-out); }
+.why figure:hover img { transform: scale(1.02); }
+
+.steps li { transition: border-color .25s ease; }
+.steps li:hover { border-color: var(--accent); }
+
+.reasons li, .facts li { transition: border-color .25s ease, padding-left .25s ease; }
+.reasons li:hover, .facts li:hover { padding-left: 1.3rem; }
+
+/* ---------- FAQ ---------- */
+.faq-item p { transform-origin: top; }
+.faq-item[open] > p { animation: an-faq .35s var(--ease-out); }
+@keyframes an-faq { from { opacity: 0; translate: 0 -8px; } }
+.faq-item summary { transition: color .2s ease; }
+.faq-item summary:hover { color: var(--accent); }
+.faq-item:not([hidden]) { animation: an-fade .3s ease; }
+@keyframes an-fade { from { opacity: 0; } }
+
+/* ---------- bilah progres scroll di atas halaman ---------- */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 60;
+  background: var(--accent);
+  transform: scaleX(0); transform-origin: 0 50%;
+  pointer-events: none;
+}
+
+/* ---------- tombol kembali ke atas ---------- */
+.to-top {
+  position: fixed; right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  z-index: 55; width: 3rem; height: 3rem; border-radius: 50%;
+  border: 0; background: var(--accent); color: var(--accent-fg);
+  font-size: 1.25rem; font-weight: 700; line-height: 1; cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .3);
+  opacity: 0; translate: 0 16px; pointer-events: none;
+  transition: opacity .3s ease, translate .3s var(--ease-out);
+}
+.to-top.show { opacity: 1; translate: 0 0; pointer-events: auto; }
+
+/* ---------- hormati pengguna yang mematikan animasi ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .hero-in { opacity: 1; }
+  .reveal.in-view, .is-ready .hero-in, .is-ready .hero-art img,
+  .faq-item[open] > p, .faq-item:not([hidden]), .is-ready .hero h1 em { animation: none; }
+  .hero h1 em { background-size: 100% 3px; }
+  .flavor:hover img, .why figure:hover img, .bundle:hover, .quote:hover { transform: none; }
+  .scroll-progress { display: none; }
+  .to-top { transition: none; }
+}

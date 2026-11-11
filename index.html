@@ -10,7 +10,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap">
 <link rel="stylesheet"  href="style.css">
-<link rel="stylesheet" href="faq.css">
+<link rel="stylesheet" href="extra.css">
+<link rel="stylesheet" href="animations.css">
 <link rel="stylesheet" href="loader.css">
 <script src="loader.js"></script>
 </head>
@@ -95,7 +96,16 @@
   </section>
  
  
-<section class="section why">
+<section class="section" id="paket">
+    <div class="wrap">
+      <p class="eyebrow">Paket hemat</p>
+      <h2>Paket oleh-oleh Garut</h2>
+      <p class="sub">Bingung pilih? Ambil paket yang sudah dipasangkan, cocok untuk hantaran atau dibawa pulang.</p>
+      <div class="bundles" id="bundles"></div>
+    </div>
+  </section>
+
+  <section class="section why">
   <div class="wrap">
     <figure>
       <img src="img/abon-vakum.jpg" alt="Abon ayam spesial dalam kemasan vakum dengan stiker 8 Bersaudara" loading="lazy">
@@ -132,6 +142,31 @@
 </section>
  
  
+  <section class="section story" id="cerita">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Tentang kami</p>
+        <h2>Dari Pawon Teh Aisyah, Garut</h2>
+        <!-- TODO: ganti dengan cerita aslimu: siapa pembuatnya, sejak kapan, kenapa "8 Bersaudara" -->
+        <p>Camilan 8 Bersaudara dibuat di dapur rumahan di Tarogong Kaler, Garut. Kami memilih bahan yang jelas dan memasaknya dalam jumlah kecil supaya rasanya terjaga.</p>
+        <p>Setiap pesanan kami kemas sendiri, lalu kami kirim ke alamatmu.</p>
+      </div>
+      <ul class="facts">
+        <li><b>Rumahan</b><span>Dibuat dalam jumlah kecil</span></li>
+        <li><b>Garut</b><span>Tarogong Kaler, Jawa Barat</span></li>
+        <li><b>Tanpa MSG</b><span>Untuk varian abon ayam</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section proof" id="testimoni">
+    <div class="wrap">
+      <p class="eyebrow">Kata pembeli</p>
+      <h2>Mereka sudah mencoba</h2>
+      <div class="quotes" id="quotes"></div>
+    </div>
+  </section>
+
   <section class="section" id="cara-pesan">
     <div class="wrap">
       <p class="eyebrow">Cara pesan</p>
@@ -144,51 +179,67 @@
     </div>
   </section>
  
+  <section class="ship" aria-label="Info pengiriman">
+    <div class="wrap">
+      <ul>
+        <li><b>Dikirim ke seluruh Indonesia</b><span>Lewat ekspedisi, ongkir sesuai alamat</span></li>
+        <li><b>Kemasan aman</b><span>Dikemas rapi sebelum dikirim</span></li>
+        <li><b>Tanggal kedaluwarsa tertera</b><span>Mudah dicek di tiap kemasan</span></li>
+        <li><b>Bayar transfer</b><span>Tanpa akun, semua lewat chat</span></li>
+      </ul>
+    </div>
+  </section>
+
   <section class="section faq" id="faq">
     <div class="wrap">
       <p class="eyebrow">Pertanyaan umum</p>
       <h2>Yang sering ditanyakan</h2>
       <p class="sub">Belum ketemu jawabannya? Tanya langsung lewat WhatsApp, kami balas.</p>
- 
-      <div class="faq-list">
+
+      <div class="faq-list" id="faq-list">
         <details class="faq-item" open>
           <summary>Bagaimana cara memesan?</summary>
           <p>Pilih produk di atas, lalu tekan "Pesan via WhatsApp". Pesan sudah tersusun otomatis, kamu tinggal isi jumlah, nama, dan alamat, lalu kirim. Kami balas dengan total belanja, ongkir, dan nomor rekening.</p>
         </details>
- 
         <details class="faq-item">
           <summary>Apakah harus daftar akun?</summary>
           <p>Tidak perlu. Semua proses pemesanan lewat WhatsApp, tanpa daftar dan tanpa isi formulir panjang.</p>
         </details>
- 
+        <details class="faq-item">
+          <summary>Boleh bertanya dulu sebelum memesan?</summary>
+          <p>Boleh banget. Tekan tombol WhatsApp, tulis pertanyaanmu, dan kami jawab lewat chat.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Apakah bisa pesan dalam jumlah banyak atau untuk reseller?</summary>
+          <p>Bisa. Tulis jumlah yang kamu butuhkan lewat WhatsApp dan kami sampaikan harga serta ketersediaannya.</p>
+        </details>
         <details class="faq-item">
           <summary>Bagaimana cara membayar?</summary>
           <p>Bayar dengan transfer ke nomor rekening yang kami kirim lewat chat. Setelah transfer, kirim bukti pembayaran di chat yang sama, lalu pesananmu kami kemas dan kirim.</p>
         </details>
- 
         <details class="faq-item">
           <summary>Produk apa saja yang tersedia?</summary>
-          <p>Abon ayam (original dan pedas), keripik pisang cokelat lumer, pastel abon, cipeng (pedas dan original), serta kentang mustofa. Harga tiap produk tertera di kartunya.</p>
+          <p>Abon ayam (original dan pedas), keripik pisang (cokelat lumer, cokelat tabur, cheesemilk), pastel abon, cipeng (pedas dan original), serta kentang mustofa. Harga tiap produk tertera di kartunya.</p>
         </details>
- 
         <details class="faq-item">
           <summary>Apa bedanya abon ayam original dan pedas?</summary>
           <p>Keduanya dibuat dari daging ayam, bawang merah, dan rempah pilihan. Varian pedas ditambah cabai, jadi cocok untuk kamu yang suka sensasi pedas.</p>
         </details>
- 
-        <details class="faq-item">
-          <summary>Berapa ongkos kirimnya?</summary>
-          <p>Ongkir menyesuaikan alamat tujuanmu. Tulis alamat lengkap saat memesan, nanti kami sampaikan totalnya, termasuk ongkir, lewat chat.</p>
-        </details>
- 
         <details class="faq-item">
           <summary>Bagaimana cara mengecek tanggal kedaluwarsa?</summary>
           <p>Setiap kemasan mencantumkan tanggal kedaluwarsa, jadi mudah dicek sebelum dimakan.</p>
         </details>
- 
         <details class="faq-item">
-          <summary>Boleh bertanya dulu sebelum memesan?</summary>
-          <p>Boleh banget. Tekan tombol WhatsApp, tulis pertanyaanmu, dan kami jawab lewat chat.</p>
+          <summary>Bagaimana cara menyimpan produknya?</summary>
+          <p>Simpan di tempat kering dan sejuk, dan tutup rapat kemasan setelah dibuka. Untuk batas konsumsi, lihat tanggal kedaluwarsa di kemasan.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Berapa ongkos kirimnya?</summary>
+          <p>Ongkir menyesuaikan alamat tujuanmu. Tulis alamat lengkap saat memesan, nanti kami sampaikan totalnya, termasuk ongkir, lewat chat.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Dikirim lewat ekspedisi apa dan berapa lama sampai?</summary>
+          <p>Tanyakan lewat WhatsApp dengan menyebut kota tujuanmu. Kami infokan pilihan ekspedisi dan perkiraan lama pengiriman.</p>
         </details>
       </div>
     </div>
@@ -211,7 +262,9 @@
         <h3>Jelajahi</h3>
         <ul>
           <li><a href="#rasa">Pilih produk</a></li>
+          <li><a href="#paket">Paket hemat</a></li>
           <li><a href="#cara-pesan">Cara pesan</a></li>
+          <li><a href="#faq">Tanya jawab</a></li>
         </ul>
       </div>
  
@@ -362,5 +415,7 @@ $("#flavors").innerHTML = CONFIG.flavors.map((f) =>
   '<a class="btn btn-wa" href="' + waLink(orderText(f.name)) + '" target="_blank" rel="noopener">Pesan via WhatsApp</a></div></div></article>'
 ).join("");
 </script>
+<script src="extra.js"></script>
+<script src="animations.js"></script>
 </body>
 </html>
