@@ -4,6 +4,41 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap">
 <link rel="stylesheet"  href="style.css">
+<link rel="stylesheet" href="faq.css">
+<link rel="stylesheet" href="loader.css">
+<script src="loader.js"></script>
+ 
+ 
+<div class="loader" id="loader" role="status" aria-live="polite" aria-label="Memuat halaman">
+  <div class="loader-crumbs" aria-hidden="true">
+    <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+  </div>
+  <div class="loader-inner">
+    <div class="loader-mark">
+      <svg class="loader-ring" viewBox="0 0 120 120" aria-hidden="true">
+        <circle class="track" cx="60" cy="60" r="54"></circle>
+        <circle class="arc" cx="60" cy="60" r="54"></circle>
+      </svg>
+      <span class="loader-eight" aria-hidden="true">8</span>
+    </div>
+    <p class="loader-brand" aria-hidden="true">
+        <span>B</span>
+        <span>e</span>
+        <span>r</span>
+        <span>s</span>
+        <span>a</span>
+        <span>u</span>
+        <span>d</span>
+        <span>a</span>
+        <span>r</span>
+        <span>a</span>
+    </p>
+    <p class="loader-tagline">Camilan khas Garut</p>
+    <div class="loader-bar" aria-hidden="true"><i></i></div>
+    <p class="loader-status">Menyiapkan camilan</p>
+  </div>
+</div>
+<noscript><link rel="stylesheet" href="loader-off.css"></noscript>
 
 
 <header class="top">
@@ -101,6 +136,56 @@
     </div>
   </section>
 
+  <section class="section faq" id="faq">
+    <div class="wrap">
+      <p class="eyebrow">Pertanyaan umum</p>
+      <h2>Yang sering ditanyakan</h2>
+      <p class="sub">Belum ketemu jawabannya? Tanya langsung lewat WhatsApp, kami balas.</p>
+ 
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>Bagaimana cara memesan?</summary>
+          <p>Pilih produk di atas, lalu tekan "Pesan via WhatsApp". Pesan sudah tersusun otomatis, kamu tinggal isi jumlah, nama, dan alamat, lalu kirim. Kami balas dengan total belanja, ongkir, dan nomor rekening.</p>
+        </details>
+ 
+        <details class="faq-item">
+          <summary>Apakah harus daftar akun?</summary>
+          <p>Tidak perlu. Semua proses pemesanan lewat WhatsApp, tanpa daftar dan tanpa isi formulir panjang.</p>
+        </details>
+ 
+        <details class="faq-item">
+          <summary>Bagaimana cara membayar?</summary>
+          <p>Bayar dengan transfer ke nomor rekening yang kami kirim lewat chat. Setelah transfer, kirim bukti pembayaran di chat yang sama, lalu pesananmu kami kemas dan kirim.</p>
+        </details>
+ 
+        <details class="faq-item">
+          <summary>Produk apa saja yang tersedia?</summary>
+          <p>Abon ayam (original dan pedas), keripik pisang cokelat lumer, pastel abon, cipeng (pedas dan original), serta kentang mustofa. Harga tiap produk tertera di kartunya.</p>
+        </details>
+ 
+        <details class="faq-item">
+          <summary>Apa bedanya abon ayam original dan pedas?</summary>
+          <p>Keduanya dibuat dari daging ayam, bawang merah, dan rempah pilihan. Varian pedas ditambah cabai, jadi cocok untuk kamu yang suka sensasi pedas.</p>
+        </details>
+ 
+        <details class="faq-item">
+          <summary>Berapa ongkos kirimnya?</summary>
+          <p>Ongkir menyesuaikan alamat tujuanmu. Tulis alamat lengkap saat memesan, nanti kami sampaikan totalnya, termasuk ongkir, lewat chat.</p>
+        </details>
+ 
+        <details class="faq-item">
+          <summary>Bagaimana cara mengecek tanggal kedaluwarsa?</summary>
+          <p>Setiap kemasan mencantumkan tanggal kedaluwarsa, jadi mudah dicek sebelum dimakan.</p>
+        </details>
+ 
+        <details class="faq-item">
+          <summary>Boleh bertanya dulu sebelum memesan?</summary>
+          <p>Boleh banget. Tekan tombol WhatsApp, tulis pertanyaanmu, dan kami jawab lewat chat.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   
 
   
@@ -111,7 +196,7 @@
     <div class="foot-grid">
       <div class="foot-brand">
         <a class="brand" href="#atas">8 <span>Bersaudara</span></a>
-        <p>Abon ayam dari Garut, dibuat dari daging ayam, bawang merah, dan rempah pilihan.</p>
+        <p>Abon ayam dan aneka camilan dari Garut: keripik pisang, pastel abon, cipeng, dan kentang mustofa.</p>
       </div>
 
       <div>
@@ -152,7 +237,7 @@ const CONFIG = {
   flavors: [
     {
       name: "Abon Ayam Spesial",
-      price: 45000,
+      price: 50000,
       unit: "per pouch",
       img: "img/abon-original.jpg",
       tag: "Original",
@@ -161,7 +246,7 @@ const CONFIG = {
     },
     {
       name: "Abon Ayam Pedas Spesial",
-      price: 45000,
+      price: 50000,
       unit: "per pouch",
       img: "img/abon-pedas.jpg",
       tag: "Pedas",
@@ -176,7 +261,43 @@ const CONFIG = {
       tag: "Cokelat",
       desc: "Keripik pisang renyah dengan balutan cokelat lezat.",
       komposisi: "Pisang, cokelat, minyak goreng, dan gula."
-    }
+    },
+    {
+    name: "Pastel Abon",
+    price: 30000,
+    unit: "/kemasan",
+    img: "img/pastel-abon.jpg",
+    tag: "Gurih",
+    desc: "Pastel renyah dengan isian abon ayam yang gurih dan lezat. Pilihan camilan nikmat untuk menemani waktu santai.",
+    komposisi: "Kulit pastel dan abon ayam. Bahan kulit dan bumbu lainnya perlu disesuaikan dengan resep asli."
+  },
+  {
+    name: "Cipeng Pedas",
+    price: 20000,
+    unit: "/kemasan",
+    img: "img/cipeng-pedas.jpeg",
+    tag: "Pedas",
+    desc: "Cipeng dengan cita rasa pedas yang menggugah selera. Cocok dinikmati sebagai camilan saat bersantai.",
+    komposisi: "Belum dikonfirmasi. Sesuaikan dengan bahan yang digunakan pada produk."
+  },
+  {
+    name: "Cipeng Original",
+    price: 20000,
+    unit: "/kemasan",
+    img: "img/cipeng-ori.jpg",
+    tag: "Original",
+    desc: "Cipeng dengan rasa original yang gurih dan nikmat, cocok untuk camilan sehari-hari.",
+    komposisi: "Belum dikonfirmasi. Sesuaikan dengan bahan yang digunakan pada produk."
+  },
+  {
+    name: "Kentang Mustofa",
+    price: 35000,
+    unit: "/kemasan",
+    img: "img/kentang-mustofa.jpeg",
+    tag: "Pedas Manis",
+    desc: "Kentang yang diiris tipis dan digoreng hingga renyah, kemudian dibalut bumbu pedas manis yang gurih dan menggugah selera.",
+    komposisi: "Kentang, cabai, gula, dan bumbu pilihan. Sesuaikan dengan resep asli produk."
+  },
   ]
 };
 
@@ -188,24 +309,24 @@ const $ = (s) => document.querySelector(s);
 const rupiah = (n) => "Rp " + new Intl.NumberFormat("id-ID").format(n);
 const waLink = (t) => "https://wa.me/" + CONFIG.waNumber + "?text=" + encodeURIComponent(t);
 const orderText = (name) => "Halo " + CONFIG.shopName + ", saya mau pesan " + name + ".\n\nJumlah: \nNama: \nAlamat: \n\nMohon info total, ongkir, dan nomor rekening untuk transfer. Terima kasih.";
-
+ 
 const n = CONFIG.waNumber;
 const waText = $("#wa-text");
 if (waText) waText.textContent = n.startsWith("62") ? "+62 " + n.slice(2, 5) + "-" + n.slice(5, 9) + "-" + n.slice(9) : "+" + n;
-
+ 
 const notice = $("#notice");
 if (notice) {
   if (!CONFIG.templateMode) notice.hidden = true;
   $("#notice-close").addEventListener("click", () => { notice.hidden = true; });
 }
-
-const general = waLink("Halo " + CONFIG.shopName + ", saya mau pesan abon ayam.\n\nRasa: \nJumlah: \nNama: \nAlamat: \n\nMohon info total, ongkir, dan nomor rekening untuk transfer. Terima kasih.");
+ 
+const general = waLink("Halo " + CONFIG.shopName + ", saya mau pesan camilan.\n\nProduk: \nJumlah: \nNama: \nAlamat: \n\nMohon info total, ongkir, dan nomor rekening untuk transfer. Terima kasih.");
 document.querySelectorAll('[data-wa]').forEach((a) => {
   a.href = a.dataset.wa === "keripik"
     ? waLink("Halo " + CONFIG.shopName + ", saya mau tanya tentang Keripik Pisang Cokelat.")
     : general;
 });
-
+ 
 $("#flavors").innerHTML = CONFIG.flavors.map((f) =>
   '<article class="flavor"><img src="' + f.img + '" alt="Kemasan ' + f.name + '" loading="lazy">' +
   '<div class="in"><span class="tag ' + (f.tag === "Original" ? "leaf" : "") + '">' + f.tag + "</span>" +
