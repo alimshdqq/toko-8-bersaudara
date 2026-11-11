@@ -3,21 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#17110e">
-<title>Abon Ayam 8 Bersaudara</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="theme-color" content="#fff6e8">
+<title>8 Bersaudara · Abon Ayam &amp; Camilan Khas Garut</title>
+<meta name="description" content="Abon ayam tanpa tambahan MSG, keripik pisang, pastel abon, cipeng, dan kentang mustofa. Dibuat rumahan di Garut, dikirim ke seluruh Indonesia. Pesan mudah lewat WhatsApp.">
+<meta property="og:title" content="8 Bersaudara · Abon Ayam & Camilan Khas Garut">
+<meta property="og:description" content="Dibuat rumahan di Garut, dikirim ke seluruh Indonesia. Pesan mudah lewat WhatsApp.">
+<meta property="og:image" content="img/abon-original.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap">
-<link rel="stylesheet"  href="style.css">
-<link rel="stylesheet" href="extra.css">
+<link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="animations.css">
 <link rel="stylesheet" href="loader.css">
 <script src="loader.js"></script>
 </head>
 <body>
- 
- 
+
+<!-- LOADING SCREEN -->
 <div class="loader" id="loader" role="status" aria-live="polite" aria-label="Memuat halaman">
   <div class="loader-crumbs" aria-hidden="true">
     <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
@@ -31,16 +33,7 @@
       <span class="loader-eight" aria-hidden="true">8</span>
     </div>
     <p class="loader-brand" aria-hidden="true">
-        <span>B</span>
-        <span>e</span>
-        <span>r</span>
-        <span>s</span>
-        <span>a</span>
-        <span>u</span>
-        <span>d</span>
-        <span>a</span>
-        <span>r</span>
-        <span>a</span>
+      <span>B</span><span>e</span><span>r</span><span>s</span><span>a</span><span>u</span><span>d</span><span>a</span><span>r</span><span>a</span>
     </p>
     <p class="loader-tagline">Camilan khas Garut</p>
     <div class="loader-bar" aria-hidden="true"><i></i></div>
@@ -48,108 +41,141 @@
   </div>
 </div>
 <noscript><link rel="stylesheet" href="loader-off.css"></noscript>
- 
- 
+
+<!-- HEADER -->
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#atas">8 <span>Bersaudara</span></a>
-    <span class="from">Pawon Teh Aisyah · Garut</span>
+    <a class="brand" href="#atas" aria-label="8 Bersaudara, ke atas"><b class="brand-8">8</b> <span>Bersaudara</span></a>
+    <nav class="nav" aria-label="Menu utama">
+      <a href="#rasa">Produk</a>
+      <a href="#paket">Paket</a>
+      <a href="#cerita">Cerita</a>
+      <a href="#cara-pesan">Cara pesan</a>
+      <a href="#faq">Tanya jawab</a>
+    </nav>
+    <button type="button" class="cart-btn" id="cart-open" aria-label="Buka pesanan kamu" aria-haspopup="dialog">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 12H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+      <span class="cart-label">Pesanan</span>
+      <span class="cart-count" id="cart-count" hidden>0</span>
+    </button>
   </div>
 </header>
- 
+
 <main id="atas">
+
+  <!-- HERO -->
   <section class="hero">
     <div class="wrap">
-      <div>
-        <p class="eyebrow">Abon ayam dari Garut</p>
-        <h1>Rasa asli ayam, <em>tanpa tambahan MSG.</em></h1>
-        <p class="lead">Dibuat dari daging ayam, bawang merah, dan rempah pilihan. Tersedia rasa original dan pedas. Pesan lewat WhatsApp, bayar dengan transfer.</p>
+      <div class="hero-copy">
+        <p class="eyebrow">Camilan rumahan khas Garut</p>
+        <h1>Abon ayam gurih &amp; camilan renyah <em>langsung dari Garut.</em></h1>
+        <p class="lead">Abon ayam kami dibuat dari daging ayam, bawang merah, dan rempah pilihan, tanpa tambahan MSG. Ada juga keripik pisang, pastel abon, cipeng, dan kentang mustofa.</p>
         <div class="cta">
-          <small>Tanpa daftar akun. Total dan nomor rekening kami kirim lewat chat.</small>
+          <a class="btn btn-primary btn-lg" href="#rasa">Lihat semua produk</a>
+          <a class="btn btn-ghost btn-lg" data-wa="hero" href="#" target="_blank" rel="noopener">Tanya via WhatsApp</a>
         </div>
+        <ul class="hero-badges" aria-label="Keunggulan">
+          <li>Tanpa tambahan MSG<span class="sr"> (varian abon ayam)</span></li>
+          <li>Dikirim ke seluruh Indonesia</li>
+          <li>Tanpa daftar akun</li>
+        </ul>
       </div>
-      <div class="hero-art">
-        <img src="img/abon-original.jpg" alt="Kemasan Abon Ayam Spesial 8 Bersaudara">
-        <img src="img/abon-pedas.jpg" alt="Kemasan Abon Ayam Pedas Spesial 8 Bersaudara">
+
+      <div class="hero-art" aria-hidden="false">
+        <span class="blob"></span>
+        <figure class="pic pic-a"><img src="img/abon-original.jpg" alt="Kemasan Abon Ayam Spesial 8 Bersaudara"></figure>
+        <figure class="pic pic-b"><img src="img/abon-pedas.jpg" alt="Kemasan Abon Ayam Pedas Spesial 8 Bersaudara"></figure>
+        <div class="sticker" aria-hidden="true"><b>8</b><span>Bersaudara<br>Garut</span></div>
       </div>
     </div>
   </section>
- 
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" id="marquee"></div>
+  </div>
+
+  <!-- RINGKASAN -->
   <section class="points" aria-label="Ringkasan">
     <div class="wrap">
       <ul>
-        <li><span class="k">Bahan</span><span class="v">Ayam, bawang merah, rempah</span></li>
-        <li><span class="k">Rasa</span><span class="v">Original dan pedas</span></li>
-        <li><span class="k">MSG</span><span class="v">Tanpa tambahan MSG</span></li>
-        <li><span class="k">Asal</span><span class="v">Tarogong Kaler, Garut</span></li>
+        <li><b class="num-big" id="stat-products">10</b><span>pilihan camilan</span></li>
+        <li><b class="num-big">2</b><span>rasa abon: original &amp; pedas</span></li>
+        <li><b class="num-big">0</b><span>MSG tambahan di abon ayam</span></li>
+        <li><b class="num-big">1 chat</b><span>cukup untuk memesan, tanpa akun</span></li>
       </ul>
     </div>
   </section>
- 
+
+  <!-- PRODUK -->
   <section class="section" id="rasa">
     <div class="wrap">
-      <p class="eyebrow">Pilih produk</p>
-      <h2>Tiga pilihan, satu cara pesan</h2>
-      <p class="sub">Tekan tombol di bawah produk yang kamu mau. WhatsApp terbuka dengan pesan yang sudah tersusun.</p>
+      <p class="eyebrow">Pilih camilanmu</p>
+      <h2>Semua enak, tinggal pilih yang paling kamu suka</h2>
+      <p class="sub">Tekan <b>Tambah</b> pada produk yang kamu mau, atur jumlahnya, lalu kirim pesanan ke WhatsApp dalam sekali tekan.</p>
+
+      <div class="filters" id="filters" role="group" aria-label="Kategori produk"></div>
       <div class="flavors" id="flavors"></div>
     </div>
   </section>
- 
- 
-<section class="section" id="paket">
+
+  <!-- PAKET -->
+  <section class="section bundles-sec" id="paket">
     <div class="wrap">
-      <p class="eyebrow">Paket hemat</p>
-      <h2>Paket oleh-oleh Garut</h2>
-      <p class="sub">Bingung pilih? Ambil paket yang sudah dipasangkan, cocok untuk hantaran atau dibawa pulang.</p>
+      <p class="eyebrow">Paket pilihan</p>
+      <h2>Bingung pilih? Ambil paketnya</h2>
+      <p class="sub">Kombinasi camilan yang cocok untuk oleh-oleh, hantaran, atau stok di rumah. Satu tekan, semua langsung masuk ke pesananmu.</p>
       <div class="bundles" id="bundles"></div>
     </div>
   </section>
 
+  <!-- KENAPA -->
   <section class="section why">
-  <div class="wrap">
-    <figure>
-      <img src="img/abon-vakum.jpg" alt="Abon ayam spesial dalam kemasan vakum dengan stiker 8 Bersaudara" loading="lazy">
-      <figcaption>Abon Ayam Spesial 8 Bersaudara, dikemas higienis dan praktis</figcaption>
-    </figure>
- 
-    <div>
-      <p class="eyebrow">Mengenal produk kami</p>
-      <h2>Rasa yang gurih, bahan yang jelas</h2>
- 
-      <ul class="reasons">
-        <li>
-          <b>Gurih khas ayam</b>
-          <span>Dibuat dari daging ayam, jadi rasa gurihnya terasa asli dan cocok dimakan kapan saja.</span>
-        </li>
- 
-        <li>
-          <b>Bahan yang jelas</b>
-          <span>Daging ayam, bawang merah, dan rempah pilihan. Varian pedas ditambah cabai.</span>
-        </li>
- 
-        <li>
-          <b>Cocok untuk banyak hidangan</b>
-          <span>Tinggal taburkan di atas nasi hangat, bubur, atau roti.</span>
-        </li>
- 
-        <li>
-          <b>Tanggal kedaluwarsa tertera</b>
-          <span>Setiap kemasan mencantumkan tanggal kedaluwarsa, jadi mudah dicek sebelum dimakan.</span>
-        </li>
-      </ul>
+    <div class="wrap">
+      <figure>
+        <img src="img/abon-vakum.jpg" alt="Abon ayam spesial dalam kemasan vakum dengan stiker 8 Bersaudara">
+        <figcaption>Abon Ayam Spesial 8 Bersaudara, dikemas higienis dan praktis</figcaption>
+      </figure>
+
+      <div>
+        <p class="eyebrow">Mengenal produk kami</p>
+        <h2>Rasa yang gurih, bahan yang jelas</h2>
+        <ul class="reasons">
+          <li>
+            <i class="ico" aria-hidden="true">01</i>
+            <div><b>Gurih khas ayam</b>
+            <span>Dibuat dari daging ayam, jadi rasa gurihnya terasa asli dan cocok dimakan kapan saja.</span></div>
+          </li>
+          <li>
+            <i class="ico" aria-hidden="true">02</i>
+            <div><b>Bahan yang jelas</b>
+            <span>Daging ayam, bawang merah, dan rempah pilihan. Varian pedas ditambah cabai. Komposisi tiap produk tertulis di kartunya.</span></div>
+          </li>
+          <li>
+            <i class="ico" aria-hidden="true">03</i>
+            <div><b>Cocok untuk banyak hidangan</b>
+            <span>Taburkan abon di atas nasi hangat, bubur, atau roti. Camilan lainnya enak untuk teman santai.</span></div>
+          </li>
+          <li>
+            <i class="ico" aria-hidden="true">04</i>
+            <div><b>Tanggal kedaluwarsa tertera</b>
+            <span>Setiap kemasan mencantumkan tanggal kedaluwarsa, jadi mudah dicek sebelum dimakan.</span></div>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</section>
- 
- 
+  </section>
+
+  <!-- CERITA -->
   <section class="section story" id="cerita">
     <div class="wrap">
-      <div>
+      <div class="story-copy">
         <p class="eyebrow">Tentang kami</p>
-        <h2>Dari Pawon Teh Aisyah, Garut</h2>
+        <h2>Dari dapur Pawon Teh Aisyah, Garut</h2>
         <!-- TODO: ganti dengan cerita aslimu: siapa pembuatnya, sejak kapan, kenapa "8 Bersaudara" -->
         <p>Camilan 8 Bersaudara dibuat di dapur rumahan di Tarogong Kaler, Garut. Kami memilih bahan yang jelas dan memasaknya dalam jumlah kecil supaya rasanya terjaga.</p>
-        <p>Setiap pesanan kami kemas sendiri, lalu kami kirim ke alamatmu.</p>
+        <p>Setiap pesanan kami kemas sendiri dengan rapi, lalu kami kirim ke alamatmu. Jadi kamu bisa menikmati camilan khas Garut tanpa harus datang ke Garut.</p>
+        <a class="btn btn-ghost" data-wa="story" href="#" target="_blank" rel="noopener">Kenalan lewat WhatsApp</a>
       </div>
       <ul class="facts">
         <li><b>Rumahan</b><span>Dibuat dalam jumlah kecil</span></li>
@@ -159,26 +185,20 @@
     </div>
   </section>
 
-  <section class="section proof" id="testimoni">
-    <div class="wrap">
-      <p class="eyebrow">Kata pembeli</p>
-      <h2>Mereka sudah mencoba</h2>
-      <div class="quotes" id="quotes"></div>
-    </div>
-  </section>
-
+  <!-- CARA PESAN -->
   <section class="section" id="cara-pesan">
     <div class="wrap">
       <p class="eyebrow">Cara pesan</p>
       <h2>Tiga langkah, selesai di WhatsApp</h2>
       <ol class="steps">
-        <li><h3>Kirim pesan</h3><p>Pilih produk, lalu tekan "Pesan via WhatsApp". Tulis jumlah, nama, dan alamatmu, lalu kirim.</p></li>
+        <li><h3>Pilih &amp; kirim pesan</h3><p>Tambahkan camilan ke pesananmu, lalu tekan "Kirim via WhatsApp". Daftar pesanan sudah tersusun otomatis.</p></li>
         <li><h3>Terima total</h3><p>Kami balas dengan total belanja, ongkir, dan nomor rekening.</p></li>
-        <li><h3>Transfer dan kirim bukti</h3><p>Kirim bukti transfer lewat chat yang sama. Pesananmu kami kemas dan kirim.</p></li>
+        <li><h3>Transfer &amp; kirim bukti</h3><p>Kirim bukti transfer lewat chat yang sama. Pesananmu kami kemas dan kirim.</p></li>
       </ol>
     </div>
   </section>
- 
+
+  <!-- PENGIRIMAN -->
   <section class="ship" aria-label="Info pengiriman">
     <div class="wrap">
       <ul>
@@ -190,6 +210,7 @@
     </div>
   </section>
 
+  <!-- FAQ -->
   <section class="section faq" id="faq">
     <div class="wrap">
       <p class="eyebrow">Pertanyaan umum</p>
@@ -201,7 +222,13 @@
           <span class="sr">Cari pertanyaan</span>
           <input type="search" id="faq-q" placeholder="Cari, misalnya: ongkir, bayar, simpan" autocomplete="off">
         </label>
-        <div class="chips" id="faq-chips" role="group" aria-label="Kategori"><button type="button" class="chip on" data-cat="Semua" aria-pressed="true">Semua</button><button type="button" class="chip" data-cat="Pemesanan" aria-pressed="false">Pemesanan</button><button type="button" class="chip" data-cat="Pembayaran" aria-pressed="false">Pembayaran</button><button type="button" class="chip" data-cat="Produk" aria-pressed="false">Produk</button><button type="button" class="chip" data-cat="Pengiriman" aria-pressed="false">Pengiriman</button></div>
+        <div class="chips" id="faq-chips" role="group" aria-label="Kategori">
+          <button type="button" class="chip on" data-cat="Semua" aria-pressed="true">Semua</button>
+          <button type="button" class="chip" data-cat="Pemesanan" aria-pressed="false">Pemesanan</button>
+          <button type="button" class="chip" data-cat="Pembayaran" aria-pressed="false">Pembayaran</button>
+          <button type="button" class="chip" data-cat="Produk" aria-pressed="false">Produk</button>
+          <button type="button" class="chip" data-cat="Pengiriman" aria-pressed="false">Pengiriman</button>
+        </div>
         <div class="faq-meta">
           <span id="faq-count" aria-live="polite"></span>
           <button type="button" id="faq-toggle" class="linkbtn">Buka semua</button>
@@ -211,7 +238,7 @@
       <div class="faq-list" id="faq-list">
         <details class="faq-item" data-cat="Pemesanan" open>
           <summary>Bagaimana cara memesan?</summary>
-          <p>Pilih produk di atas, lalu tekan "Pesan via WhatsApp". Pesan sudah tersusun otomatis, kamu tinggal isi jumlah, nama, dan alamat, lalu kirim. Kami balas dengan total belanja, ongkir, dan nomor rekening.</p>
+          <p>Tekan "Tambah" pada produk yang kamu mau, lalu buka Pesanan dan tekan "Kirim via WhatsApp". Pesan sudah tersusun otomatis, kamu tinggal kirim. Kami balas dengan total belanja, ongkir, dan nomor rekening.</p>
         </details>
         <details class="faq-item" data-cat="Pemesanan">
           <summary>Apakah harus daftar akun?</summary>
@@ -260,30 +287,36 @@
       </div>
     </div>
   </section>
- 
-  
- 
-  
+
+  <!-- PENUTUP -->
+  <section class="final">
+    <div class="wrap">
+      <div>
+        <h2>Sudah ngiler? Pesan sekarang, kami kemas dengan sepenuh hati.</h2>
+        <p>Chat kami kapan saja. Pesanan dibalas dengan total, ongkir, dan nomor rekening.</p>
+      </div>
+      <a class="btn btn-wa btn-lg" data-wa="final" href="#" target="_blank" rel="noopener">Chat via WhatsApp</a>
+    </div>
+  </section>
 </main>
- 
+
+<!-- FOOTER -->
 <footer class="foot">
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a class="brand" href="#atas">8 <span>Bersaudara</span></a>
+        <a class="brand" href="#atas"><b class="brand-8">8</b> <span>Bersaudara</span></a>
         <p>Abon ayam dan aneka camilan dari Garut: keripik pisang, pastel abon, cipeng, dan kentang mustofa.</p>
       </div>
- 
       <div>
         <h3>Jelajahi</h3>
         <ul>
           <li><a href="#rasa">Pilih produk</a></li>
-          <li><a href="#paket">Paket hemat</a></li>
+          <li><a href="#paket">Paket pilihan</a></li>
           <li><a href="#cara-pesan">Cara pesan</a></li>
           <li><a href="#faq">Tanya jawab</a></li>
         </ul>
       </div>
- 
       <div>
         <h3>Kontak</h3>
         <ul>
@@ -293,145 +326,43 @@
         </ul>
       </div>
     </div>
- 
     <div class="foot-bottom">
       <span>8 Bersaudara · Diproduksi oleh Pawon Teh Aisyah</span>
       <a href="#atas">Kembali ke atas</a>
     </div>
   </div>
 </footer>
- 
- 
- 
-<script>
- 
- 
-const CONFIG = {
-  shopName: "8 Bersaudara",
-  waNumber: "6282240176262",
-  templateMode: true,
- 
-  flavors: [
-    {
-      name: "Abon Ayam Spesial",
-      price: 50000,
-      unit: "per pouch",
-      img: "img/abon-original.jpg",
-      tag: "Original",
-      desc: "Gurih dan lezat dengan cita rasa ayam autentik.",
-      komposisi: "Daging ayam, bawang merah, dan rempah pilihan."
-    },
-    {
-      name: "Abon Ayam Pedas Spesial",
-      price: 50000,
-      unit: "per pouch",
-      img: "img/abon-pedas.jpg",
-      tag: "Pedas",
-      desc: "Perpaduan abon ayam gurih dengan sensasi pedas.",
-      komposisi: "Daging ayam, bawang merah, rempah, dan cabai."
-    },
-    {
-      name: "Keripik Pisang Cokelat Lumer",
-      price: 25000,
-      unit: "per pouch",
-      img: "img/keripik-lumer.jpg",
-      tag: "Cokelat",
-      desc: "Keripik pisang renyah dengan balutan cokelat lezat.",
-      komposisi: "Pisang, cokelat, minyak goreng, dan gula."
-    },
-    {
-    name: "Pastel Abon",
-    price: 30000,
-    unit: "/kemasan",
-    img: "img/pastel-abon.jpg",
-    tag: "Gurih",
-    desc: "Pastel renyah dengan isian abon ayam yang gurih dan lezat. Pilihan camilan nikmat untuk menemani waktu santai.",
-    komposisi: "Tepung terigu, abon ayam, telur, margarin, air, bawang putih, garam, dan bumbu pilihan."
-  },
-  {
-    name: "Cipeng Pedas",
-    price: 20000,
-    unit: "/kemasan",
-    img: "img/cipeng-pedas.jpeg",
-    tag: "Pedas",
-    desc: "Cipeng dengan cita rasa pedas yang menggugah selera. Cocok dinikmati sebagai camilan saat bersantai.",
-    komposisi: "Tepung tapioka, tepung terigu, bawang putih, garam, penyedap rasa, cabai bubuk, dan minyak goreng."
-  },
-  {
-    name: "Cipeng Original",
-    price: 20000,
-    unit: "/kemasan",
-    img: "img/cipeng-ori.jpg",
-    tag: "Original",
-    desc: "Cipeng dengan rasa original yang gurih dan nikmat, cocok untuk camilan sehari-hari.",
-    komposisi: "Tepung tapioka, tepung terigu, bawang putih, garam, penyedap rasa, dan minyak goreng."
-  },
-  {
-    name: "Kentang Mustofa",
-    price: 35000,
-    unit: "/kemasan",
-    img: "img/kentang-mustofa.jpeg",
-    tag: "Pedas Manis",
-    desc: "Kentang yang diiris tipis dan digoreng hingga renyah, kemudian dibalut bumbu pedas manis yang gurih dan menggugah selera.",
-    komposisi: "Kentang, cabai, gula merah, gula pasir, bawang merah, bawang putih, garam, dan minyak goreng."
-  },
-  {
-    name: "Keripik Pisang Cheesemilk",
-    price: 35000,
-    unit: "/kemasan",
-    img: "img/keripik-pisang-cheesmilk.jpeg",
-    tag: "keju & susu",
-    desc: "Keripik pisang renyah dengan perpaduan rasa keju dan susu yang gurih, manis, serta creamy. Cocok untuk menemani waktu santai bersama keluarga.",
-    komposisi: "Pisang, minyak goreng, bumbu keju, susu bubuk, gula, dan garam."
-  },
-  {
-    name: "Keripik Pisang cokelat tabur",
-    price: 35000,
-    unit: "/kemasan",
-    img: "img/keripik-pisang.jpeg",
-    tag: " Cokelat",
-    desc: "Keripik pisang renyah dengan taburan cokelat yang lezat. Cocok untuk menemani waktu santai bersama keluarga.",
-    komposisi: "Pisang, minyak goreng, cokelat, gula, dan garam."
-  },
-  ]
-};
- 
- 
-  
- 
- 
-const $ = (s) => document.querySelector(s);
-const rupiah = (n) => "Rp " + new Intl.NumberFormat("id-ID").format(n);
-const waLink = (t) => "https://wa.me/" + CONFIG.waNumber + "?text=" + encodeURIComponent(t);
-const orderText = (name) => "Halo " + CONFIG.shopName + ", saya mau pesan " + name + ".\n\nJumlah: \nNama: \nAlamat: \n\nMohon info total, ongkir, dan nomor rekening untuk transfer. Terima kasih.";
- 
-const n = CONFIG.waNumber;
-const waText = $("#wa-text");
-if (waText) waText.textContent = n.startsWith("62") ? "+62 " + n.slice(2, 5) + "-" + n.slice(5, 9) + "-" + n.slice(9) : "+" + n;
- 
-const notice = $("#notice");
-if (notice) {
-  if (!CONFIG.templateMode) notice.hidden = true;
-  $("#notice-close").addEventListener("click", () => { notice.hidden = true; });
-}
- 
-const general = waLink("Halo " + CONFIG.shopName + ", saya mau pesan camilan.\n\nProduk: \nJumlah: \nNama: \nAlamat: \n\nMohon info total, ongkir, dan nomor rekening untuk transfer. Terima kasih.");
-document.querySelectorAll('[data-wa]').forEach((a) => {
-  a.href = a.dataset.wa === "keripik"
-    ? waLink("Halo " + CONFIG.shopName + ", saya mau tanya tentang Keripik Pisang Cokelat.")
-    : general;
-});
- 
-$("#flavors").innerHTML = CONFIG.flavors.map((f) =>
-  '<article class="flavor"><img src="' + f.img + '" alt="Kemasan ' + f.name + '" loading="lazy">' +
-  '<div class="in"><span class="tag ' + (f.tag === "Original" ? "leaf" : "") + '">' + f.tag + "</span>" +
-  "<h3>" + f.name + "</h3><p>" + f.desc + "</p>" +
-  '<div class="komp"><b>Komposisi</b>' + f.komposisi + "</div>" +
-  '<div class="buy"><div class="price">' + rupiah(f.price) + "<small>" + f.unit + "</small></div>" +
-  '<a class="btn btn-wa" href="' + waLink(orderText(f.name)) + '" target="_blank" rel="noopener">Pesan via WhatsApp</a></div></div></article>'
-).join("");
-</script>
-<script src="extra.js"></script>
+
+<!-- BILAH PESANAN (muncul setelah ada item) -->
+<div class="cartbar" id="cartbar" hidden>
+  <button type="button" id="cartbar-open">
+    <span class="cb-count" id="cb-count">0</span>
+    <span class="cb-text"><b id="cb-items">0 item</b><small>Lihat dan kirim pesanan</small></span>
+    <span class="cb-total" id="cb-total">Rp 0</span>
+  </button>
+</div>
+
+<!-- LACI PESANAN -->
+<div class="overlay" id="overlay" hidden></div>
+<aside class="cart" id="cart" role="dialog" aria-modal="true" aria-labelledby="cart-title" aria-hidden="true" inert>
+  <div class="cart-head">
+    <h2 id="cart-title">Pesananmu</h2>
+    <button type="button" class="icon-btn" id="cart-close" aria-label="Tutup pesanan">&times;</button>
+  </div>
+  <div class="cart-body" id="cart-body"></div>
+  <div class="cart-foot" id="cart-foot">
+    <div class="cart-fields">
+      <label>Nama <input type="text" id="f-name" placeholder="Nama kamu" autocomplete="name"></label>
+      <label>Kota / alamat <input type="text" id="f-addr" placeholder="Supaya ongkir bisa kami hitung" autocomplete="street-address"></label>
+    </div>
+    <div class="cart-total"><span>Total produk</span><b id="cart-total">Rp 0</b></div>
+    <p class="cart-note">Belum termasuk ongkir. Kami kirim total akhir dan nomor rekening lewat chat.</p>
+    <a class="btn btn-wa btn-lg btn-block" id="cart-send" href="#" target="_blank" rel="noopener">Kirim via WhatsApp</a>
+    <button type="button" class="linkbtn" id="cart-clear">Kosongkan pesanan</button>
+  </div>
+</aside>
+
+<script src="main.js"></script>
 <script src="animations.js"></script>
 </body>
 </html>
