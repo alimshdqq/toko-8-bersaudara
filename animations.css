@@ -93,7 +93,7 @@
 
 /* ---------- tombol kembali ke atas ---------- */
 .to-top {
-  position: fixed; right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  position: fixed; right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(16px + 3.5rem + 12px + env(safe-area-inset-bottom, 0px));
   z-index: 55; width: 3rem; height: 3rem; border-radius: 50%;
   border: 0; background: var(--accent); color: var(--accent-fg);
   font-size: 1.25rem; font-weight: 700; line-height: 1; cursor: pointer;
