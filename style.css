@@ -374,3 +374,11 @@ button { font: inherit; color: inherit; }
 .pc:hover, .pc:focus-visible { z-index: 5; transform: translateY(calc(var(--y) - 14px)) rotate(0deg) scale(1.04); }
 @media (max-width: 36rem) { .pc:nth-child(n+6) { display: none; } }
 @media (prefers-reduced-motion: reduce) { .pc { transition: none; } }
+
+/* foto terbang ke keranjang */
+.fly-img { position: fixed; z-index: 90; width: 72px; height: 72px; object-fit: cover; border-radius: 14px; border: 2px solid #fff; box-shadow: 0 8px 20px rgba(0, 0, 0, .3); pointer-events: none; }
+
+/* kartu footer jatuh sekali */
+.pc-wait .pc { opacity: 0; }
+.pc-drop .pc { animation: pc-fall .9s cubic-bezier(.3, 1.35, .5, 1) backwards; animation-delay: calc(var(--n, 0) * 110ms); }
+@keyframes pc-fall { from { opacity: 0; translate: 0 -280px; rotate: 22deg; } 25% { opacity: 1; } }
