@@ -22,7 +22,6 @@
     [".story-copy", "from-left"],
     [".facts li", ""],
     [".steps li", ""],
-    [".faq-tools", ""],
     [".faq-item", ""],
     [".foot-grid > *", ""]
   ];
