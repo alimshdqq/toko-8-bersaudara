@@ -342,3 +342,131 @@ button { font: inherit; color: inherit; }
   .btn, .flavor, .bundle, .steps li, .cartbar, .cart, .overlay, .toast { transition: none; animation: none; }
   .marquee-track, .hero-art .blob { animation: none; }
 }
+
+/* ---------- penyempurnaan card paket ---------- */
+.bundles {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 1.5rem;
+}
+
+.bundle {
+  height: 100%;
+  min-width: 0;
+}
+
+.b-thumbs {
+  height: auto;
+  aspect-ratio: 16 / 9;
+  grid-auto-columns: minmax(0, 1fr);
+  overflow: hidden;
+}
+
+.b-thumbs img {
+  min-width: 0;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .35s ease;
+}
+
+.bundle:hover .b-thumbs img {
+  transform: scale(1.04);
+}
+
+.b-in {
+  height: 100%;
+  padding: 1.4rem;
+  gap: .85rem;
+}
+
+.b-in h3 {
+  min-height: 3rem;
+  line-height: 1.2;
+}
+
+.b-in > p {
+  min-height: 4.5rem;
+  line-height: 1.65;
+}
+
+.b-content {
+  flex: 1;
+  padding: .9rem;
+  border-radius: .8rem;
+  background: var(--bg);
+  border: 1px solid var(--line);
+}
+
+.b-label {
+  display: block;
+  margin-bottom: .5rem;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.b-list {
+  gap: .5rem;
+}
+
+.b-list li {
+  line-height: 1.5;
+}
+
+.b-buy {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  align-items: center;
+}
+
+.b-buy .price {
+  font-size: 1.45rem;
+}
+
+.b-buy .btn {
+  min-height: 2.8rem;
+  padding-inline: 1rem;
+}
+
+.bundle-featured {
+  border: 2px solid var(--accent);
+  box-shadow: 0 8px 24px rgba(194, 87, 10, .12);
+}
+
+.bundle-featured .tag {
+  background: var(--accent);
+  color: #fff;
+}
+
+@media (max-width: 52rem) {
+  .bundles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 36rem) {
+  .bundles {
+    grid-template-columns: 1fr;
+  }
+
+  .b-thumbs {
+    aspect-ratio: 16 / 8;
+  }
+
+  .b-in h3,
+  .b-in > p {
+    min-height: 0;
+  }
+
+  .b-buy {
+    align-items: stretch;
+  }
+
+  .b-buy .btn {
+    flex: 1;
+  }
+}

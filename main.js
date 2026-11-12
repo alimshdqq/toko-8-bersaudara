@@ -330,46 +330,89 @@ function toast(msg) {
   toastT = setTimeout(() => t.classList.remove("show"), 2200);
 }
 
+
 /* =====================================================
-   FAQ: cari, filter kategori, buka semua
+   FAQ: aman meskipun fitur pencarian belum tersedia
    ===================================================== */
 (function () {
-  const q = $("#faq-q"), chips = $$("#faq-chips .chip"), items = $$(".faq-item"),
-        count = $("#faq-count"), toggle = $("#faq-toggle"), empty = $("#faq-empty");
+  const q = $("#faq-q");
+  const chips = $$("#faq-chips .chip");
+  const items = $$(".faq-item");
+  const count = $("#faq-count");
+  const toggle = $("#faq-toggle");
+  const empty = $("#faq-empty");
+
   let cat = "Semua";
 
   function apply() {
-    const term = q.value.trim().toLowerCase();
+    const term = q ? q.value.trim().toLowerCase() : "";
     let shown = 0;
+
     items.forEach((it) => {
-      const ok = (cat === "Semua" || it.dataset.cat === cat) &&
-                 (!term || it.textContent.toLowerCase().indexOf(term) > -1);
+      const ok =
+        (cat === "Semua" || it.dataset.cat === cat) &&
+        (!term || it.textContent.toLowerCase().includes(term));
+
       it.hidden = !ok;
       if (ok) shown++;
     });
-    count.textContent = shown + " pertanyaan";
-    empty.hidden = shown !== 0;
+
+    if (count) {
+      count.textContent = shown + " pertanyaan";
+    }
+
+    if (empty) {
+      empty.hidden = shown !== 0;
+    }
+
     const visible = items.filter((it) => !it.hidden);
-    const allOpen = visible.length > 0 && visible.every((it) => it.open);
-    toggle.textContent = allOpen ? "Tutup semua" : "Buka semua";
-    toggle.hidden = visible.length === 0;
+    const allOpen =
+      visible.length > 0 && visible.every((it) => it.open);
+
+    if (toggle) {
+      toggle.textContent = allOpen ? "Tutup semua" : "Buka semua";
+      toggle.hidden = visible.length === 0;
+    }
   }
 
-  q.addEventListener("input", apply);
-  chips.forEach((c) => c.addEventListener("click", () => {
-    cat = c.dataset.cat;
-    chips.forEach((x) => { const on = x === c; x.classList.toggle("on", on); x.setAttribute("aria-pressed", on); });
-    apply();
-  }));
-  toggle.addEventListener("click", () => {
-    const visible = items.filter((it) => !it.hidden);
-    const open = !visible.every((it) => it.open);
-    visible.forEach((it) => { it.open = open; });
-    apply();
+  if (q) {
+    q.addEventListener("input", apply);
+  }
+
+  chips.forEach((c) => {
+    c.addEventListener("click", () => {
+      cat = c.dataset.cat;
+
+      chips.forEach((x) => {
+        const on = x === c;
+        x.classList.toggle("on", on);
+        x.setAttribute("aria-pressed", on);
+      });
+
+      apply();
+    });
   });
-  items.forEach((it) => it.addEventListener("toggle", apply));
+
+  if (toggle) {
+    toggle.addEventListener("click", () => {
+      const visible = items.filter((it) => !it.hidden);
+      const open = !visible.every((it) => it.open);
+
+      visible.forEach((it) => {
+        it.open = open;
+      });
+
+      apply();
+    });
+  }
+
+  items.forEach((it) => {
+    it.addEventListener("toggle", apply);
+  });
+
   apply();
 })();
+
 
 /* ---------- header: bayangan saat scroll ---------- */
 (function () {
