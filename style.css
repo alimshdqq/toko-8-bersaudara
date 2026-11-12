@@ -254,20 +254,39 @@ button { font: inherit; color: inherit; }
 .num { font-family: var(--font-mono); user-select: all; }
 
 /* ---------- footer ---------- */
-.foot { --f-bg: #2a1a13; --f-fg: #f4ece5; --f-muted: #bfae9f; --f-line: #4a3a30; --f-accent: #f7b733; background: var(--f-bg); color: var(--f-fg); padding-block: clamp(2.5rem, 6vw, 4rem) 1.5rem; font-size: .95rem; }
+.foot { --f-bg: #2a1a13; --f-bg-2: #3a2418; --f-fg: #f4ece5; --f-muted: #bfae9f; --f-line: #4a3a30; --f-accent: #f7b733; background: var(--f-bg); color: var(--f-fg); padding-block: clamp(2.5rem, 6vw, 4rem) 1.5rem; font-size: .95rem; }
+.foot .ico { width: 1.25em; height: 1.25em; flex: none; }
+.foot-cta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.25rem 2rem; padding: clamp(1.25rem, 3vw, 2rem); margin-bottom: clamp(2rem, 5vw, 3.25rem); border-radius: 1.25rem; background: linear-gradient(135deg, var(--f-bg-2), #4a2c1b); border: 1px solid var(--f-line); }
+.foot-cta h2 { font-size: clamp(1.4rem, 3.5vw, 2rem); color: var(--f-fg); }
+.foot-cta p { margin-top: .4rem; color: var(--f-muted); max-width: 30rem; }
+.foot-cta .btn-wa { flex: none; }
 .foot-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) repeat(2, minmax(0, 1fr)); gap: 2rem clamp(1.5rem, 4vw, 3.5rem); }
 .foot .brand { font-size: 1.5rem; }
 .foot .brand span { color: var(--f-fg); }
 .foot-brand p { margin-top: .75rem; color: var(--f-muted); max-width: 22rem; }
-.foot h3 { font-family: var(--font-mono); font-size: .72rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--f-accent); margin-bottom: .9rem; }
+.foot-brand .foot-note { display: inline-block; padding: .3rem .8rem; border: 1px solid var(--f-line); border-radius: 999px; font-size: .85rem; color: var(--f-fg); }
+.foot h3 { font-size: 1.05rem; font-weight: 700; color: var(--f-accent); margin-bottom: 1rem; }
 .foot ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .55rem; }
 .foot li { color: var(--f-muted); }
 .foot li a { color: var(--f-fg); text-decoration: none; }
-.foot li a:hover, .foot-bottom a:hover { text-decoration: underline; text-underline-offset: 3px; }
-.foot .num { color: var(--f-fg); }
-.foot-bottom { margin-top: clamp(2rem, 5vw, 3rem); padding-top: 1.25rem; border-top: 1px solid var(--f-line); display: flex; flex-wrap: wrap; gap: .5rem 2rem; justify-content: space-between; font-size: .85rem; color: var(--f-muted); }
+.foot nav li a { display: inline-block; padding-block: .1rem; transition: color .2s ease, transform .2s ease; }
+.foot nav li a:hover { color: var(--f-accent); transform: translateX(4px); }
+.foot .contact { gap: .9rem; }
+.foot .contact li { display: flex; align-items: center; gap: .75rem; }
+.foot .contact-wa { display: flex; align-items: center; gap: .75rem; }
+.foot .contact span:not(.badge) { display: grid; line-height: 1.3; min-width: 0; }
+.foot .contact small { color: var(--f-muted); font-size: .8rem; }
+.foot .contact b { color: var(--f-fg); font-weight: 600; }
+.foot .badge { flex: none; display: grid; place-items: center; width: 2.6rem; height: 2.6rem; border-radius: 50%; background: var(--f-bg-2); border: 1px solid var(--f-line); color: var(--f-accent); transition: background .2s ease, color .2s ease, border-color .2s ease; }
+.foot .contact-wa .badge { background: #25d366; border-color: #25d366; color: #0b2e19; }
+.foot .contact-wa:hover .num { text-decoration: underline; text-underline-offset: 3px; }
+.foot-bottom { margin-top: clamp(2rem, 5vw, 3rem); padding-top: 1.25rem; border-top: 1px solid var(--f-line); display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 2rem; justify-content: space-between; font-size: .85rem; color: var(--f-muted); }
 .foot-bottom a { color: var(--f-fg); text-decoration: none; }
+.foot .to-top-link { display: inline-flex; align-items: center; gap: .45rem; padding: .45rem .9rem; border: 1px solid var(--f-line); border-radius: 999px; transition: background .2s ease, color .2s ease, border-color .2s ease; }
+.foot .to-top-link:hover { background: var(--f-accent); border-color: var(--f-accent); color: #2a1a13; }
+.foot .to-top-link .ico { width: 1em; height: 1em; }
 .foot a:focus-visible { outline-color: var(--f-accent); }
+@media (max-width: 36rem) { .foot-cta .btn-wa { width: 100%; } }
 
 /* ---------- bilah pesanan (bawah) ---------- */
 .cartbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; padding: .6rem max(16px, env(safe-area-inset-right, 0px)) calc(.6rem + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); pointer-events: none; animation: an-rise .4s cubic-bezier(.2,.8,.2,1); }
@@ -470,3 +489,63 @@ button { font: inherit; color: inherit; }
     flex: 1;
   }
 }
+/* kolase kartu produk di footer */
+.foot-products { margin-bottom: clamp(1.75rem, 4vw, 2.5rem); padding: clamp(1.25rem, 3vw, 2rem) clamp(1rem, 3vw, 2rem) 0; border-radius: 1.5rem; background: radial-gradient(ellipse at 50% 0%, #fff6e8 0%, #ffe3c2 80%); overflow: hidden; }
+.fp-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .5rem 1.5rem; }
+.fp-head h2 { font-size: clamp(1.4rem, 3.5vw, 2rem); color: var(--deep-2); }
+.fp-head a { color: var(--accent); font-weight: 700; text-underline-offset: 3px; }
+.pc-stack { display: flex; justify-content: center; align-items: flex-start; height: clamp(14rem, 30vw, 19rem); padding-top: 1.75rem; }
+.pc { flex: none; width: clamp(8.5rem, 17vw, 12.5rem); margin-inline: clamp(-2.2rem, -2.6vw, -1rem); padding: clamp(.5rem, 1.2vw, .7rem); display: flex; flex-direction: column; gap: .55rem; border: 2px solid var(--deep-2); border-radius: 1.1rem; background: var(--bg); color: var(--fg); text-decoration: none; transform: translateY(var(--y)) rotate(var(--r)); box-shadow: 0 10px 24px rgba(90, 45, 10, .25); transition: transform .3s cubic-bezier(.2, .8, .2, 1); }
+.pc img { order: 1; width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: .65rem; }
+.pc b { order: 2; font-family: var(--font-display); font-weight: 800; font-size: clamp(.95rem, 1.8vw, 1.2rem); line-height: 1.08; letter-spacing: -.01em; text-wrap: balance; padding: 0 .15rem .2rem; }
+.pc:hover, .pc:focus-visible { z-index: 5; transform: translateY(calc(var(--y) - 14px)) rotate(0deg) scale(1.04); }
+@media (max-width: 36rem) { .pc:nth-child(n+6) { display: none; } }
+@media (prefers-reduced-motion: reduce) { .pc { transition: none; } }
+
+/* foto terbang ke keranjang */
+.fly-img { position: fixed; z-index: 90; width: 72px; height: 72px; object-fit: cover; border-radius: 14px; border: 2px solid #fff; box-shadow: 0 8px 20px rgba(0, 0, 0, .3); pointer-events: none; }
+
+/* kartu footer jatuh sekali */
+.pc-wait .pc { opacity: 0; }
+.pc-drop .pc { animation: pc-fall .9s cubic-bezier(.3, 1.35, .5, 1) backwards; animation-delay: calc(var(--n, 0) * 110ms); }
+@keyframes pc-fall { from { opacity: 0; translate: 0 -280px; rotate: 22deg; } 25% { opacity: 1; } }
+
+/* ---- animasi halus ---- */
+.flavor .pic { transition: transform .25s ease; }
+.flavor .pic.tilt { transform: perspective(800px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); }
+
+.hero-crumbs { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+.hero-crumbs i { position: absolute; bottom: -10px; left: var(--x); width: var(--s); height: var(--s); border-radius: 50%; background: var(--accent-bright); opacity: 0; animation: crumb var(--t) linear infinite; animation-delay: var(--d); }
+@keyframes crumb { 0% { transform: translateY(0); opacity: 0; } 15% { opacity: .4; } 85% { opacity: .25; } 100% { transform: translateY(-34rem); opacity: 0; } }
+
+.flavor .heat { position: absolute; left: .6rem; bottom: .6rem; display: inline-flex; gap: .1rem; padding: .25rem .5rem; border-radius: 999px; background: rgba(255, 255, 255, .92); box-shadow: 0 2px 8px rgba(0, 0, 0, .15); }
+.heat span { width: 1.05rem; height: 1.05rem; color: #cfc3b6; transition: color .35s ease, transform .35s cubic-bezier(.3, 1.5, .5, 1); transition-delay: calc(var(--k) * 140ms); }
+.heat svg { display: block; width: 100%; height: 100%; }
+.heat.on .hot { color: #d83a14; }
+.heat:not(.on) .hot { transform: scale(.7); }
+
+.steps .chat { margin-top: .9rem; display: flex; opacity: 0; translate: 0 8px; transition: opacity .35s ease, translate .35s ease; }
+.steps .chat.go { opacity: 1; translate: 0 0; }
+.chat-me { justify-content: flex-end; }
+.chat .msg, .chat .dots { padding: .55rem .85rem; border-radius: 1rem; font-size: .88rem; line-height: 1.4; }
+.chat-me .msg { background: #dcf8c6; color: #1d2b14; border-bottom-right-radius: .25rem; }
+.chat-shop .msg, .chat-shop .dots { background: var(--bg-2); color: var(--fg); border-bottom-left-radius: .25rem; border: 1px solid var(--line); }
+.chat-shop .msg { display: none; }
+.chat-shop.sent .msg { display: block; animation: chat-pop .3s ease; }
+.chat-shop.sent .dots { display: none; }
+.dots { display: inline-flex; gap: .25rem; align-items: center; }
+.dots i { width: .4rem; height: .4rem; border-radius: 50%; background: var(--muted); animation: dot 1s ease-in-out infinite; }
+.dots i:nth-child(2) { animation-delay: .15s; } .dots i:nth-child(3) { animation-delay: .3s; }
+@keyframes dot { 50% { transform: translateY(-3px); opacity: .5; } }
+@keyframes chat-pop { from { opacity: 0; scale: .92; } }
+@media (prefers-reduced-motion: reduce) {
+  .flavor .pic, .steps .chat, .heat span { transition: none; }
+  .steps .chat { opacity: 1; translate: none; }
+}
+
+/* tombol hapus di keranjang */
+.ci-del { display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); color: var(--muted); cursor: pointer; transition: background .2s ease, color .2s ease, border-color .2s ease, transform .15s ease; }
+.ci-del:hover { background: #fdeceb; border-color: #e9b4b0; color: #b3261e; }
+.ci-del:active { transform: scale(.92); }
+.clearbtn { justify-self: center; display: inline-flex; align-items: center; gap: .45rem; padding: .5rem 1rem; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--muted); font-size: .875rem; font-weight: 600; cursor: pointer; transition: background .2s ease, color .2s ease, border-color .2s ease; }
+.clearbtn:hover { background: #fdeceb; border-color: #e9b4b0; color: #b3261e; }
