@@ -5,11 +5,11 @@
 
 const CONFIG = {
   shopName: "8 Bersaudara",
-  waNumber: "6282240176262", // format internasional, tanpa + dan tanpa 0 di depan
-
+  waNumber: "6281385451011", // format internasional, tanpa + dan tanpa 0 di depan
+ 
   // kategori yang tampil sebagai tombol filter (urutan = urutan tombol)
   categories: ["Semua", "Abon", "Keripik Pisang", "Gurih & Pedas"],
-
+ 
   flavors: [
     {
       id: "abon-ori", cat: "Abon",
@@ -75,7 +75,7 @@ const CONFIG = {
       komposisi: "Kentang, cabai, gula merah, gula pasir, bawang merah, bawang putih, garam, dan minyak goreng."
     }
   ],
-
+ 
   // paket: items = [id produk, jumlah]. Harga paket = jumlah harga produk.
   // Mau kasih diskon? Tambahkan  discount: 5000  (potongan dalam rupiah) pada paketnya.
   bundles: [
@@ -96,7 +96,7 @@ const CONFIG = {
     }
   ]
 };
-
+ 
 /* ---------- util ---------- */
 const $ = (s, r) => (r || document).querySelector(s);
 const $$ = (s, r) => Array.prototype.slice.call((r || document).querySelectorAll(s));
@@ -105,18 +105,18 @@ const waLink = (t) => "https://wa.me/" + CONFIG.waNumber + "?text=" + encodeURIC
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const byId = {};
 CONFIG.flavors.forEach((f) => { byId[f.id] = f; });
-
+ 
 /* ---------- nomor & tautan WhatsApp umum ---------- */
 const n = CONFIG.waNumber;
 const waText = $("#wa-text");
 if (waText) waText.textContent = n.startsWith("62") ? "+62 " + n.slice(2, 5) + "-" + n.slice(5, 9) + "-" + n.slice(9) : "+" + n;
-
+ 
 const general = waLink("Halo " + CONFIG.shopName + ", saya mau tanya / pesan camilan.\n\nProduk: \nJumlah: \nNama: \nAlamat: \n\nMohon info total, ongkir, dan nomor rekening untuk transfer. Terima kasih.");
 $$("[data-wa]").forEach((a) => { a.href = general; });
-
+ 
 const statEl = $("#stat-products");
 if (statEl) statEl.textContent = CONFIG.flavors.length;
-
+ 
 /* ---------- marquee ---------- */
 (function () {
   const el = $("#marquee");
@@ -124,7 +124,7 @@ if (statEl) statEl.textContent = CONFIG.flavors.length;
   const one = CONFIG.flavors.map((f) => "<span>" + esc(f.name) + "</span>").join("");
   el.innerHTML = one + one;
 })();
-
+ 
 /* =====================================================
    PESANAN (keranjang) — tersimpan di browser
    ===================================================== */
@@ -144,7 +144,7 @@ const Cart = {
   count() { return Object.keys(this.items).reduce((s, id) => s + this.items[id], 0); },
   total() { return Object.keys(this.items).reduce((s, id) => s + byId[id].price * this.items[id], 0); }
 };
-
+ 
 function orderMessage() {
   const ids = Object.keys(Cart.items);
   const lines = ids.map((id, i) => (i + 1) + ". " + byId[id].name + " x" + Cart.items[id] + " = " + rupiah(byId[id].price * Cart.items[id]));
@@ -154,7 +154,7 @@ function orderMessage() {
     "\n\nTotal produk: " + rupiah(Cart.total()) + " (belum termasuk ongkir)\n\nNama: " + name + "\nAlamat: " + addr +
     "\n\nMohon info total akhir, ongkir, dan nomor rekening untuk transfer. Terima kasih.";
 }
-
+ 
 /* ---------- laci pesanan ---------- */
 const cartEl = $("#cart"), overlay = $("#overlay");
 let lastFocus = null;
@@ -182,7 +182,7 @@ $("#cart-close").addEventListener("click", closeCart);
 overlay.addEventListener("click", closeCart);
 document.addEventListener("keydown", (e) => { if (e.key === "Escape" && cartEl.classList.contains("open")) closeCart(); });
 $("#cart-clear").addEventListener("click", () => Cart.clear());
-
+ 
 $("#cart-body").addEventListener("click", (e) => {
   const b = e.target.closest("[data-act]");
   if (!b) return;
@@ -191,29 +191,29 @@ $("#cart-body").addEventListener("click", (e) => {
   if (b.dataset.act === "dec") Cart.set(id, (Cart.items[id] || 0) - 1);
   if (b.dataset.act === "del") Cart.set(id, 0);
 });
-
+ 
 $("#cart-send").addEventListener("click", (e) => {
   if (!Cart.count()) { e.preventDefault(); return; }
   e.currentTarget.href = waLink(orderMessage());
 });
-
+ 
 function renderCart() {
   const ids = Object.keys(Cart.items);
   const count = Cart.count();
-
+ 
   const badge = $("#cart-count");
   badge.textContent = count;
   badge.hidden = count === 0;
-
+ 
   const bar = $("#cartbar");
   bar.hidden = count === 0;
   $("#cb-count").textContent = count;
   $("#cb-items").textContent = count + " item";
   $("#cb-total").textContent = rupiah(Cart.total());
-
+ 
   $("#cart-total").textContent = rupiah(Cart.total());
   $("#cart-foot").hidden = ids.length === 0;
-
+ 
   $("#cart-body").innerHTML = ids.length ? ids.map((id) => {
     const f = byId[id], q = Cart.items[id];
     return '<div class="ci"><img src="' + f.img + '" alt="" width="64" height="64">' +
@@ -225,24 +225,24 @@ function renderCart() {
   }).join("") :
     '<div class="cart-empty"><div class="ce-art" aria-hidden="true">🛍️</div><b>Pesananmu masih kosong</b><p>Pilih camilan favoritmu dulu, nanti muncul di sini.</p>' +
     '<button type="button" class="btn btn-primary" id="ce-go">Lihat produk</button></div>';
-
+ 
   const go = $("#ce-go");
   if (go) go.addEventListener("click", () => { closeCart(); location.hash = "#rasa"; });
 }
-
+ 
 /* =====================================================
    PRODUK: filter + kartu
    ===================================================== */
 const state = { cat: "Semua", qty: {} };
 CONFIG.flavors.forEach((f) => { state.qty[f.id] = 1; });
-
+ 
 function renderFilters() {
   $("#filters").innerHTML = CONFIG.categories.map((c) => {
     const num = c === "Semua" ? CONFIG.flavors.length : CONFIG.flavors.filter((f) => f.cat === c).length;
     return '<button type="button" class="chip' + (c === state.cat ? " on" : "") + '" data-cat="' + esc(c) + '" aria-pressed="' + (c === state.cat) + '">' + esc(c) + ' <span>' + num + "</span></button>";
   }).join("");
 }
-
+ 
 function renderFlavors(animate) {
   const list = state.cat === "Semua" ? CONFIG.flavors : CONFIG.flavors.filter((f) => f.cat === state.cat);
   $("#flavors").innerHTML = list.map((f, i) =>
@@ -256,7 +256,7 @@ function renderFlavors(animate) {
     '<button type="button" class="btn btn-primary add" data-add>Tambah</button></div></div></div></article>'
   ).join("");
 }
-
+ 
 $("#filters").addEventListener("click", (e) => {
   const b = e.target.closest(".chip");
   if (!b) return;
@@ -264,7 +264,7 @@ $("#filters").addEventListener("click", (e) => {
   renderFilters();
   renderFlavors(true);
 });
-
+ 
 $("#flavors").addEventListener("click", (e) => {
   const card = e.target.closest(".flavor");
   if (!card) return;
@@ -286,7 +286,7 @@ $("#flavors").addEventListener("click", (e) => {
     toast(byId[id].name + " masuk ke pesananmu");
   }
 });
-
+ 
 /* =====================================================
    PAKET
    ===================================================== */
@@ -303,7 +303,7 @@ $("#bundles").innerHTML = CONFIG.bundles.map((b, i) => {
     '<div class="b-buy"><div class="price">' + rupiah(p.final) + (b.discount ? "<s>" + rupiah(p.sum) + "</s>" : "") + "</div>" +
     '<button type="button" class="btn btn-primary" data-bundle="' + i + '">Tambah paket</button></div></div></article>';
 }).join("");
-
+ 
 $("#bundles").addEventListener("click", (e) => {
   const b = e.target.closest("[data-bundle]");
   if (!b) return;
@@ -314,7 +314,7 @@ $("#bundles").addEventListener("click", (e) => {
   b.classList.add("added"); b.textContent = "Ditambahkan ✓";
   setTimeout(() => { b.classList.remove("added"); b.textContent = "Tambah paket"; }, 1200);
 });
-
+ 
 /* ---------- toast ---------- */
 let toastT;
 function toast(msg) {
@@ -329,8 +329,8 @@ function toast(msg) {
   clearTimeout(toastT);
   toastT = setTimeout(() => t.classList.remove("show"), 2200);
 }
-
-
+ 
+ 
 /* =====================================================
    FAQ: aman meskipun fitur pencarian belum tersedia
    ===================================================== */
@@ -341,79 +341,79 @@ function toast(msg) {
   const count = $("#faq-count");
   const toggle = $("#faq-toggle");
   const empty = $("#faq-empty");
-
+ 
   let cat = "Semua";
-
+ 
   function apply() {
     const term = q ? q.value.trim().toLowerCase() : "";
     let shown = 0;
-
+ 
     items.forEach((it) => {
       const ok =
         (cat === "Semua" || it.dataset.cat === cat) &&
         (!term || it.textContent.toLowerCase().includes(term));
-
+ 
       it.hidden = !ok;
       if (ok) shown++;
     });
-
+ 
     if (count) {
       count.textContent = shown + " pertanyaan";
     }
-
+ 
     if (empty) {
       empty.hidden = shown !== 0;
     }
-
+ 
     const visible = items.filter((it) => !it.hidden);
     const allOpen =
       visible.length > 0 && visible.every((it) => it.open);
-
+ 
     if (toggle) {
       toggle.textContent = allOpen ? "Tutup semua" : "Buka semua";
       toggle.hidden = visible.length === 0;
     }
   }
-
+ 
   if (q) {
     q.addEventListener("input", apply);
   }
-
+ 
   chips.forEach((c) => {
     c.addEventListener("click", () => {
       cat = c.dataset.cat;
-
+ 
       chips.forEach((x) => {
         const on = x === c;
         x.classList.toggle("on", on);
         x.setAttribute("aria-pressed", on);
       });
-
+ 
       apply();
     });
   });
-
+ 
   if (toggle) {
     toggle.addEventListener("click", () => {
       const visible = items.filter((it) => !it.hidden);
       const open = !visible.every((it) => it.open);
-
+ 
       visible.forEach((it) => {
         it.open = open;
       });
-
+ 
       apply();
     });
   }
-
+ 
   items.forEach((it) => {
     it.addEventListener("toggle", apply);
   });
-
+ 
   apply();
 })();
-
-
+ 
+ 
 /* ---------- header: bayangan saat scroll ---------- */
 (function () {
   const top = $(".top");
@@ -421,7 +421,7 @@ function toast(msg) {
   window.addEventListener("scroll", on, { passive: true });
   on();
 })();
-
+ 
 /* ---------- mulai ---------- */
 function render() { renderCart(); }
 Cart.load();
