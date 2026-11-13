@@ -13,14 +13,14 @@ const CONFIG = {
   flavors: [
     {
       id: "abon-ori", cat: "Abon",
-      name: "Abon Ayam Spesial", price: 50000, unit: "/pouch",
+      name: "Abon Ayam Spesial", price: 55000, unit: "/pouch",
       img: "img/abon-original.jpg", tag: "Original", leaf: true,
       desc: "Gurih dan lezat dengan cita rasa ayam autentik.",
       komposisi: "Daging ayam, bawang merah, dan rempah pilihan."
     },
     {
       id: "abon-pedas", cat: "Abon",
-      name: "Abon Ayam Pedas Spesial", price: 50000, unit: "/pouch",
+      name: "Abon Ayam Pedas Spesial", price: 69000, unit: "/pouch",
       img: "img/abon-pedas.jpg", tag: "Pedas",
       desc: "Perpaduan abon ayam gurih dengan sensasi pedas.",
       komposisi: "Daging ayam, bawang merah, rempah, dan cabai."
