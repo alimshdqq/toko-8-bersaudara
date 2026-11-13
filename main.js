@@ -20,14 +20,14 @@ const CONFIG = {
     },
     {
       id: "abon-pedas", cat: "Abon",
-      name: "Abon Ayam Pedas Spesial", price: 69000, unit: "/pouch",
+      name: "Abon Ayam Pedas Spesial", price: 60000, unit: "/pouch",
       img: "img/abon-pedas.jpg", tag: "Pedas",
       desc: "Perpaduan abon ayam gurih dengan sensasi pedas.",
       komposisi: "Daging ayam, bawang merah, rempah, dan cabai."
     },
     {
       id: "pisang-lumer", cat: "Keripik Pisang",
-      name: "Keripik Pisang Cokelat Lumer", price: 25000, unit: "/pouch",
+      name: "Keripik Pisang Cokelat Lumer", price: 35000, unit: "/pouch",
       img: "img/keripik-lumer.jpg", tag: "Cokelat",
       desc: "Keripik pisang renyah dengan balutan cokelat lezat.",
       komposisi: "Pisang, cokelat, minyak goreng, dan gula."
