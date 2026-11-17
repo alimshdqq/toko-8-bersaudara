@@ -1,9 +1,4 @@
-/* =====================================================
-   LOADING SCREEN
-   Dipasang lewat <link rel="stylesheet" href="loader.css">
-   dan dikendalikan oleh loader.js. Warna dan font mengikuti
-   tema website (cokelat tua, oranye, Bricolage Grotesque).
-   ===================================================== */
+
 
 html.is-loading { overflow: hidden; }
 
